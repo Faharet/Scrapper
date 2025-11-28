@@ -1,8 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
+    [Header("Physics")]
+    [Tooltip("Prevent the player from physically pushing this enemy by making its Rigidbody2D kinematic at runtime.")]
+    [SerializeField] private bool preventBeingPushed = true;
+
+    // cached 2D rigidbody (optional)
+    private Rigidbody2D rb2d;
+    [Tooltip("If set, only these colliders will be converted to Trigger to serve as hurtboxes. If empty, no colliders will be changed automatically.")]
+    [SerializeField] private Collider2D[] triggerColliders;
+    [Tooltip("When preventing being pushed, increase Rigidbody2D.mass to this value (keeps body dynamic but hard to push). Set 0 to leave mass unchanged.")]
+    [SerializeField] private float massWhenPreventPushed = 75f;
+
     // Настройки
     public float maxHealth = 100f;
     public float walkSpeed = 2f;
@@ -33,6 +44,35 @@ public class Enemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
+        // Безопасный режим: не меняем все коллайдеры автоматически, иначе враг может проваливаться через пол.
+        // Если вы хотите, чтобы враг не толкался игроком, укажите в инспекторе конкретные
+        // `triggerColliders` (например — отдельный child-collider для хитбокса), и только они будут сделаны Trigger.
+        if (preventBeingPushed)
+        {
+            if (triggerColliders != null && triggerColliders.Length > 0)
+            {
+                int count = 0;
+                foreach (var c in triggerColliders)
+                {
+                    if (c == null) continue;
+                    c.isTrigger = true;
+                    count++;
+                }
+                Debug.Log($"{name}: set {count} specified Collider2D(s) to isTrigger=true to avoid being pushed by player.");
+            }
+            else
+            {
+                Debug.LogWarning($"{name}: preventBeingPushed is true but no triggerColliders assigned — no colliders were changed. Assign hurtbox colliders to 'triggerColliders' in Inspector.");
+            }
+            // Увеличиваем массу чтобы игрок не мог легко сдвинуть врага.
+            if (rb2d != null && massWhenPreventPushed > 0f)
+            {
+                rb2d.mass = massWhenPreventPushed;
+                rb2d.freezeRotation = true;
+                Debug.Log($"{name}: Rigidbody2D.mass set to {rb2d.mass} to resist push.");
+            }
+        }
         currentHealth = maxHealth;
 
         if (agent == null)
@@ -238,6 +278,16 @@ public class Enemy : MonoBehaviour
             // Можно установить target на атакующего игрока (если передавать Transform атакующего)
         }
     }
+
+    // IDamageable implementation
+    public void Heal(float amount)
+    {
+        if (state == State.Dead) return;
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+    }
+
+    public float CurrentHealth => currentHealth;
 
     void Die()
     {
