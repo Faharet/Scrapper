@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   jumpForce: 8
-  fallMultiplier: 4
+  fallMultiplier: 6
   lowJumpMultiplier: 3
   airborneHorizontalMultiplier: 0.8
   attackPoint: {fileID: 0}
@@ -223,6 +223,7 @@ MonoBehaviour:
   contactKnockback: 8
   contactKnockbackY: 1.5
   knockbackDuration: 0.1
+  postDamageInvulnerability: 1.5
   debugContact: 1
   hangGravityMultiplier: 1.8
   hangVelocityThreshold: 0.6
@@ -233,6 +234,9 @@ MonoBehaviour:
   knockbackGravityMultiplier: 0.1
   knockbackHorizontalDamping: 3.6
   extraKnockbackLockTime: 0.15
+  invulnerabilityBlinkInterval: 0.12
+  invulnerabilityBlinkAlpha: 0.35
+  invulnerableLayerName: InvulnerablePlayer
 --- !u!61 &337100922593120761
 BoxCollider2D:
   m_ObjectHideFlags: 0

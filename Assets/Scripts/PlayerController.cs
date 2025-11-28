@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
     [SerializeField] private LayerMask dashInteractLayers;
+    [Tooltip("Multiplier applied to walking speed immediately after dash (e.g. 1.5 = 50% faster)")]
+    [SerializeField] private float postDashRunMultiplier = 1.5f;
+    [Tooltip("Rate at which the post-dash speed multiplier decays back to 1 (units per second)")]
+    [SerializeField] private float postDashDecayRate = 0.8f;
 
     [Header("4. Settings - Checks")]
     [SerializeField] private Transform groundCheck;
@@ -94,6 +98,8 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
     private bool canDash = true;
     private bool isDashing = false;
+    private bool isPostDashRunning = false;
+    private float postDashCurrentMultiplier = 1f;
     private float defaultGravity;
 
     private void Start()
@@ -657,8 +663,7 @@ public class PlayerController : MonoBehaviour
         FlipController();
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         if (isDashing || isKnocked) return;
         if (groundCheck != null)
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -676,6 +681,22 @@ public class PlayerController : MonoBehaviour
         // Уменьшаем горизонтальную скорость в воздухе
         if (!isGrounded)
             targetVelocityX *= airborneHorizontalMultiplier;
+        // Apply post-dash running multiplier (decays back to 1 over time)
+        if (postDashCurrentMultiplier > 1f)
+        {
+            targetVelocityX *= postDashCurrentMultiplier;
+            // decay towards 1
+            postDashCurrentMultiplier = Mathf.MoveTowards(postDashCurrentMultiplier, 1f, postDashDecayRate * Time.fixedDeltaTime);
+            if (postDashCurrentMultiplier <= 1f + 1e-4f)
+            {
+                postDashCurrentMultiplier = 1f;
+                isPostDashRunning = false;
+            }
+            else
+            {
+                isPostDashRunning = true;
+            }
+        }
         float smoothing = isGrounded ? accelerationTimeGrounded : accelerationTimeAirborne;
         if (rb != null)
         {
@@ -696,6 +717,38 @@ public class PlayerController : MonoBehaviour
         }
 
         ApplyBetterJumpPhysics();
+        // Update animator parameters
+        if (anim != null)
+        {
+            // isMoving: true when player has horizontal speed and is on ground
+            bool moving = false;
+            if (rb != null)
+                moving = Mathf.Abs(rb.linearVelocity.x) > 0.1f && isGrounded;
+            else
+                moving = Mathf.Abs(moveInput.x) > 0.1f && isGrounded;
+            anim.SetBool("isMoving", moving);
+
+            // isRunning: true while moving or during post-dash boosted run
+            bool running = false;
+            if (rb != null)
+                running = Mathf.Abs(rb.linearVelocity.x) > 0.1f || isPostDashRunning;
+            else
+                running = Mathf.Abs(moveInput.x) > 0.1f || isPostDashRunning;
+            anim.SetBool("isRunning", running);
+
+            // isJumping: true while player is moving upward (simple heuristic)
+            bool jumping = false;
+            if (rb != null)
+                jumping = rb.linearVelocity.y > 0.1f && !isGrounded;
+            else
+                jumping = !isGrounded && Input.GetButton("Jump");
+            anim.SetBool("isJumping", jumping);
+            // yVelocity: current vertical speed (can be used to decide rising vs falling in Animator)
+            float yVel = 0f;
+            if (rb != null) yVel = rb.linearVelocity.y;
+            // set with slight damping so transitions aren't janky
+            try { anim.SetFloat("yVelocity", yVel, 0.05f, Time.deltaTime); } catch { anim.SetFloat("yVelocity", yVel); }
+        }
     }
 
     private void Jump()
@@ -803,6 +856,10 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = defaultGravity;
         rb.linearVelocity = Vector2.zero;
         isDashing = false;
+
+        // Start post-dash running boost: increases walking speed temporarily and decays back to normal
+        postDashCurrentMultiplier = postDashRunMultiplier;
+        if (postDashCurrentMultiplier > 1f) isPostDashRunning = true;
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
