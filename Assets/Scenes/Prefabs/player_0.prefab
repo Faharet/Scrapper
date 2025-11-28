@@ -141,13 +141,49 @@ MonoBehaviour:
   invulnerabilityTime: 1
   onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3452948220899189653}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHeal:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3452948220899189653}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 30
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3452948220899189653}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1104298726203820373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,12 +201,6 @@ MonoBehaviour:
   fallMultiplier: 4
   lowJumpMultiplier: 3
   airborneHorizontalMultiplier: 0.8
-  hangGravityMultiplier: 1.8
-  hangVelocityThreshold: 0.6
-  accelerationTimeGrounded: 0.06
-  accelerationTimeAirborne: 0.2
-  coyoteTime: 0.1
-  jumpBufferTime: 0.1
   attackPoint: {fileID: 0}
   attackRange: 0.7
   enemyLayers:
@@ -189,6 +219,20 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  contactDamage: 1
+  contactKnockback: 8
+  contactKnockbackY: 1.5
+  knockbackDuration: 0.1
+  debugContact: 1
+  hangGravityMultiplier: 1.8
+  hangVelocityThreshold: 0.6
+  accelerationTimeGrounded: 0.06
+  accelerationTimeAirborne: 0.2
+  coyoteTime: 0.1
+  jumpBufferTime: 0.1
+  knockbackGravityMultiplier: 0.1
+  knockbackHorizontalDamping: 3.6
+  extraKnockbackLockTime: 0.15
 --- !u!61 &337100922593120761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -223,7 +267,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.039651394, y: 0}
+  m_Offset: {x: 0.039651394, y: 0.04821837}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -233,7 +277,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.289031, y: 2.57}
+  m_Size: {x: 1.289031, y: 2.4735632}
   m_EdgeRadius: 0
 --- !u!50 &2132257931519465048
 Rigidbody2D:

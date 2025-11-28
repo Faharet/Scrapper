@@ -62,6 +62,16 @@ public class Health : MonoBehaviour, IDamageable
         onDeath?.Invoke();
     }
 
+    /// <summary>
+    /// Force health to full (useful for initialization or debug).
+    /// Invokes onHeal event.
+    /// </summary>
+    public void FillToMax()
+    {
+        currentHealth = maxHealth;
+        onHeal?.Invoke();
+    }
+
     // Optional helper for UI
     public float GetHealthPercent()
     {

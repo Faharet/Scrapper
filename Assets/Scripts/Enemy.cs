@@ -1,320 +1,245 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour, IDamageable
+public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    [Header("Physics")]
-    [Tooltip("Prevent the player from physically pushing this enemy by making its Rigidbody2D kinematic at runtime.")]
-    [SerializeField] private bool preventBeingPushed = true;
+	[Header("Stats")]
+	[SerializeField] protected float maxHealth = 100f;
+	[SerializeField] protected float walkSpeed = 2f;
+	[SerializeField] protected float chaseSpeed = 4f;
+	[SerializeField] protected float detectRadius = 8f;
+	[SerializeField] protected float attackRange = 1.8f;
+	[SerializeField] protected float attackDamage = 20f;
+	// Public accessor so external objects (like PlayerController) can read attack damage
+	public float AttackDamage => attackDamage;
+	[SerializeField] protected float attackCooldown = 1.4f;
+	[SerializeField] protected float loseTargetTime = 3f;
+	[SerializeField] protected LayerMask playerLayer;
+	[SerializeField] protected LayerMask obstructionMask;
+	[SerializeField] protected Transform[] patrolPoints;
 
-    // cached 2D rigidbody (optional)
-    private Rigidbody2D rb2d;
-    [Tooltip("If set, only these colliders will be converted to Trigger to serve as hurtboxes. If empty, no colliders will be changed automatically.")]
-    [SerializeField] private Collider2D[] triggerColliders;
-    [Tooltip("When preventing being pushed, increase Rigidbody2D.mass to this value (keeps body dynamic but hard to push). Set 0 to leave mass unchanged.")]
-    [SerializeField] private float massWhenPreventPushed = 75f;
+	[Header("Physics")]
+	[SerializeField] protected bool preventBeingPushed = true;
+	[SerializeField] protected Collider2D[] triggerColliders;
+	[SerializeField] protected float massWhenPreventPushed = 75f;
 
-    // Настройки
-    public float maxHealth = 100f;
-    public float walkSpeed = 2f;
-    public float chaseSpeed = 4f;
-    public float detectRadius = 8f;
-    public float attackRange = 1.8f;
-    public float attackDamage = 20f;
-    public float attackCooldown = 1.4f;
-    public float loseTargetTime = 3f;
-    public LayerMask playerLayer;
-    public LayerMask obstructionMask;
-    public Transform[] patrolPoints;
+	// Components (cached)
+	protected NavMeshAgent agent;
+	protected Animator animator;
+	protected Rigidbody2D rb2d;
 
-    // Компоненты
-    NavMeshAgent agent;
-    Animator animator;
-    Transform target;
-    int currentPatrolIndex = 0;
+	// State
+	protected Transform target;
+	protected int currentPatrolIndex;
+	protected float currentHealth;
+	protected float lastAttackTime = -999f;
+	protected float lastSeenTime = -999f;
 
-    // Состояние
-    float currentHealth;
-    float lastAttackTime = -999f;
-    float lastSeenTime = -999f;
-    enum State { Patrol, Chase, Attack, Dead }
-    State state = State.Patrol;
+	protected enum State { Patrol, Chase, Attack, Dead }
+	protected State state = State.Patrol;
 
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
-        // Безопасный режим: не меняем все коллайдеры автоматически, иначе враг может проваливаться через пол.
-        // Если вы хотите, чтобы враг не толкался игроком, укажите в инспекторе конкретные
-        // `triggerColliders` (например — отдельный child-collider для хитбокса), и только они будут сделаны Trigger.
-        if (preventBeingPushed)
-        {
-            if (triggerColliders != null && triggerColliders.Length > 0)
-            {
-                int count = 0;
-                foreach (var c in triggerColliders)
-                {
-                    if (c == null) continue;
-                    c.isTrigger = true;
-                    count++;
-                }
-                Debug.Log($"{name}: set {count} specified Collider2D(s) to isTrigger=true to avoid being pushed by player.");
-            }
-            else
-            {
-                Debug.LogWarning($"{name}: preventBeingPushed is true but no triggerColliders assigned — no colliders were changed. Assign hurtbox colliders to 'triggerColliders' in Inspector.");
-            }
-            // Увеличиваем массу чтобы игрок не мог легко сдвинуть врага.
-            if (rb2d != null && massWhenPreventPushed > 0f)
-            {
-                rb2d.mass = massWhenPreventPushed;
-                rb2d.freezeRotation = true;
-                Debug.Log($"{name}: Rigidbody2D.mass set to {rb2d.mass} to resist push.");
-            }
-        }
-        currentHealth = maxHealth;
+	protected virtual void Awake()
+	{
+		agent = GetComponent<NavMeshAgent>();
+		animator = GetComponent<Animator>();
+		rb2d = GetComponent<Rigidbody2D>();
+	}
 
-        if (agent == null)
-        {   
-            Debug.LogWarning($"{name}: NavMeshAgent component not found — movement disabled.");
-        }
-        else
-        {
-            agent.speed = walkSpeed;
+	protected virtual void Start()
+	{
+		currentHealth = maxHealth;
 
-            if (patrolPoints != null && patrolPoints.Length > 0)
-            {
-                agent.SetDestination(patrolPoints[0].position);
-            }
-        }
+		if (agent != null)
+		{
+			agent.speed = walkSpeed;
+			if (patrolPoints != null && patrolPoints.Length > 0)
+				agent.SetDestination(patrolPoints[0].position);
+		}
 
-        if (animator == null)
-        {
-            Debug.LogWarning($"{name}: Animator component not found — animations disabled.");
-        }
-    }
+		if (preventBeingPushed)
+		{
+			if (rb2d != null && massWhenPreventPushed > 0f)
+			{
+				rb2d.mass = massWhenPreventPushed;
+				rb2d.freezeRotation = true;
+			}
 
-    void Update()
-    {
-        if (state == State.Dead) return;
+			if (triggerColliders != null && triggerColliders.Length > 0)
+			{
+				foreach (var c in triggerColliders)
+					if (c != null) c.isTrigger = true;
+			}
+		}
+	}
 
-        DetectPlayer();
+	protected virtual void Update()
+	{
+		if (state == State.Dead) return;
 
-        switch (state)
-        {
-            case State.Patrol:
-                PatrolUpdate();
-                break;
-            case State.Chase:
-                ChaseUpdate();
-                break;
-            case State.Attack:
-                AttackUpdate();
-                break;
-        }
+		DetectPlayer();
 
-        if (animator != null && agent != null)
-            animator.SetFloat("Speed", agent.velocity.magnitude);
+		switch (state)
+		{
+			case State.Patrol: PatrolUpdate(); break;
+			case State.Chase: ChaseUpdate(); break;
+			case State.Attack: AttackUpdate(); break;
+		}
 
-        SnapToNavMesh();
-    }
+		if (animator != null && agent != null)
+			animator.SetFloat("Speed", agent.velocity.magnitude);
 
-    void DetectPlayer()
-    {
-        Collider[] hits = Physics.OverlapSphere(transform.position, detectRadius, playerLayer);
-        if (hits == null || hits.Length == 0)
-        {
-            if (state == State.Chase && Time.time - lastSeenTime > loseTargetTime)
-            {
-                LoseTarget();
-            }
-            return;
-        }
+		SnapToNavMesh();
+	}
 
-        Transform nearest = null;
-        float bestDist = Mathf.Infinity;
-        foreach (var c in hits)
-        {
-            if (c == null) continue;
-            Vector3 dir = (c.transform.position - transform.position).normalized;
-            float dist = Vector3.Distance(transform.position, c.transform.position);
+	protected virtual void DetectPlayer()
+	{
+		Collider[] hits = Physics.OverlapSphere(transform.position, detectRadius, playerLayer);
+		if (hits == null || hits.Length == 0)
+		{
+			if (state == State.Chase && Time.time - lastSeenTime > loseTargetTime)
+				LoseTarget();
+			return;
+		}
 
-            if (!Physics.Raycast(transform.position + Vector3.up * 0.5f, dir, dist, obstructionMask))
-            {
-                if (dist < bestDist)
-                {
-                    bestDist = dist;
-                    nearest = c.transform;
-                }
-            }
-        }
+		Transform nearest = null;
+		float bestDist = Mathf.Infinity;
+		foreach (var c in hits)
+		{
+			if (c == null) continue;
+			Vector3 dir = (c.transform.position - transform.position).normalized;
+			float dist = Vector3.Distance(transform.position, c.transform.position);
+			if (!Physics.Raycast(transform.position + Vector3.up * 0.5f, dir, dist, obstructionMask))
+			{
+				if (dist < bestDist)
+				{
+					bestDist = dist;
+					nearest = c.transform;
+				}
+			}
+		}
 
-        if (nearest != null)
-        {
-            target = nearest;
-            lastSeenTime = Time.time;
-            if (state != State.Chase && state != State.Attack)
-            {
-                StartChase();
-            }
-        }
-    }
+		if (nearest != null)
+		{
+			target = nearest;
+			lastSeenTime = Time.time;
+			if (state != State.Chase && state != State.Attack)
+				StartChase();
+		}
+	}
 
-    void PatrolUpdate()
-    {
-        if (agent == null) return;
-        if (patrolPoints == null || patrolPoints.Length == 0) return;
+	protected virtual void PatrolUpdate()
+	{
+		if (agent == null) return;
+		if (patrolPoints == null || patrolPoints.Length == 0) return;
+		if (!agent.pathPending && agent.remainingDistance < 0.5f)
+		{
+			currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+			agent.SetDestination(patrolPoints[currentPatrolIndex].position);
+		}
+	}
 
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-        {
-            currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
-            agent.SetDestination(patrolPoints[currentPatrolIndex].position);
-        }
-    }
+	protected virtual void StartChase()
+	{
+		state = State.Chase;
+		if (agent != null) agent.speed = chaseSpeed;
+	}
 
-    void StartChase()
-    {
-        state = State.Chase;
-        if (agent != null) agent.speed = chaseSpeed;
-    }
+	protected virtual void ChaseUpdate()
+	{
+		if (target == null)
+		{
+			state = State.Patrol;
+			if (agent != null) agent.speed = walkSpeed;
+			return;
+		}
 
-    void ChaseUpdate()
-    {
-        if (target == null)
-        {
-            state = State.Patrol;
-            if (agent != null) agent.speed = walkSpeed;
-            return;
-        }
+		if (agent != null)
+			agent.SetDestination(target.position);
 
-        if (agent != null)
-        {
-            agent.SetDestination(target.position);
-        }
-        else
-        {
-            Vector3 dir = (target.position - transform.position).normalized;
-            if (dir.sqrMagnitude > 0.001f)
-                transform.rotation = Quaternion.LookRotation(new Vector3(dir.x, 0f, dir.z));
-        }
+		float dist = Vector3.Distance(transform.position, target.position);
+		if (dist <= attackRange && Time.time - lastAttackTime >= attackCooldown)
+		{
+			state = State.Attack;
+			if (animator != null) animator.SetTrigger("Attack");
+			if (agent != null) agent.isStopped = true;
+		}
+	}
 
-        float dist = Vector3.Distance(transform.position, target.position);
-        if (dist <= attackRange && Time.time - lastAttackTime >= attackCooldown)
-        {
-            state = State.Attack;
-            if (animator != null) animator.SetTrigger("Attack");
-            if (agent != null) agent.isStopped = true;
-        }
-    }
+	protected virtual void AttackUpdate()
+	{
+		if (target == null) { EndAttack(); return; }
+		float dist = Vector3.Distance(transform.position, target.position);
+		if (dist > attackRange + 0.5f) { EndAttack(); return; }
+	}
 
-    void AttackUpdate()
-    {
-        if (target == null)
-        {
-            EndAttack();
-            return;
-        }
+	public virtual void DealDamage()
+	{
+		if (target == null) return;
+		if (target.TryGetComponent<IDamageable>(out var damageable))
+		{
+			damageable.TakeDamage(attackDamage);
+		}
+		lastAttackTime = Time.time;
+	}
 
-        float dist = Vector3.Distance(transform.position, target.position);
-        if (dist > attackRange + 0.5f)
-        {
-            EndAttack();
-            return;
-        }
+	protected virtual void EndAttack()
+	{
+		state = State.Chase;
+		if (agent != null) agent.isStopped = false;
+	}
 
-        if (agent == null)
-        {
-            Vector3 dir = (target.position - transform.position).normalized;
-            if (dir.sqrMagnitude > 0.001f)
-                transform.rotation = Quaternion.LookRotation(new Vector3(dir.x, 0f, dir.z));
-        }
-    }
+	protected virtual void LoseTarget()
+	{
+		target = null;
+		state = State.Patrol;
+		if (agent != null)
+		{
+			agent.speed = walkSpeed;
+			if (patrolPoints != null && patrolPoints.Length > 0)
+				agent.SetDestination(patrolPoints[currentPatrolIndex].position);
+		}
+	}
 
-    // Вызвать из Animation Event в момент удара
-    public void DealDamage()
-    {
-        if (target == null) return;
+	public virtual void TakeDamage(float amount)
+	{
+		if (state == State.Dead) return;
+		currentHealth -= amount;
+		if (animator != null) animator.SetTrigger("Hit");
+		if (currentHealth <= 0f) Die();
+	}
 
-        // Используем TryGetComponent с интерфейсом, чтобы избежать выделений и ошибок компиляции
-        if (target.TryGetComponent<IDamageable>(out var damageable))
-        {
-            damageable.TakeDamage(attackDamage);
-        }
+	public virtual void Heal(float amount)
+	{
+		if (state == State.Dead) return;
+		currentHealth += amount;
+		currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+	}
 
-        lastAttackTime = Time.time;
-    }
+	public virtual float CurrentHealth => currentHealth;
 
-    void EndAttack()
-    {
-        state = State.Chase;
-        if (agent != null) agent.isStopped = false;
-    }
+	protected virtual void Die()
+	{
+		state = State.Dead;
+		if (animator != null) animator.SetBool("IsDead", true);
+		if (agent != null) agent.isStopped = true;
+	}
 
-    void LoseTarget()
-    {
-        target = null;
-        state = State.Patrol;
-        if (agent != null)
-        {
-            agent.speed = walkSpeed;
-            if (patrolPoints != null && patrolPoints.Length > 0)
-                agent.SetDestination(patrolPoints[currentPatrolIndex].position);
-        }
-    }
+	protected virtual void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawWireSphere(transform.position, detectRadius);
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, attackRange);
+	}
 
-    public void TakeDamage(float amount)
-    {
-        if (state == State.Dead) return;
-        currentHealth -= amount;
-        if (animator != null) animator.SetTrigger("Hit");
-
-        if (currentHealth <= 0f)
-        {
-            Die();
-        }
-        else
-        {
-            // Можно установить target на атакующего игрока (если передавать Transform атакующего)
-        }
-    }
-
-    // IDamageable implementation
-    public void Heal(float amount)
-    {
-        if (state == State.Dead) return;
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-    }
-
-    public float CurrentHealth => currentHealth;
-
-    void Die()
-    {
-        state = State.Dead;
-        if (animator != null) animator.SetBool("IsDead", true);
-        if (agent != null) agent.isStopped = true;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
-
-    void SnapToNavMesh()
-    {
-        if (agent == null) return;
-
-        // Ищем ближайшую точку NavMesh в радиусе 1 м
-        if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1f, NavMesh.AllAreas))
-        {
-            // Смещаем по высоте на baseOffset агента, чтобы стоял над поверхностью
-            Vector3 snapPos = hit.position + Vector3.up * agent.baseOffset;
-            // Teleport agent к корректной высоте — безопаснее, чем прямое присваивание transform.position
-            agent.Warp(snapPos);
-        }
-    }
+	protected virtual void SnapToNavMesh()
+	{
+		if (agent == null) return;
+		if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+		{
+			Vector3 snapPos = hit.position + Vector3.up * agent.baseOffset;
+			agent.Warp(snapPos);
+		}
+	}
 }
+

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 99152272945599824}
   - component: {fileID: 2290710575561053241}
   - component: {fileID: 2029865306010412390}
-  - component: {fileID: 4106309543222016607}
+  - component: {fileID: 456273787553865710}
   - component: {fileID: 3739804059902710883}
   - component: {fileID: 3811893592022666311}
   - component: {fileID: 5711040409951522132}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4106309543222016607}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: TakeDamage
         m_Mode: 4
@@ -118,7 +118,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 15
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -140,7 +140,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4106309543222016607
+--- !u!114 &456273787553865710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,24 +149,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 4709413020187721769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f2f61fefff814e4b8b4924a8a58da53, type: 3}
+  m_Script: {fileID: 11500000, guid: 80b3fd200648b6c4dacfb49a2646e95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   walkSpeed: 2
   chaseSpeed: 4
   detectRadius: 8
   attackRange: 1.8
-  attackDamage: 20
+  attackDamage: 10
   attackCooldown: 1.4
   loseTargetTime: 3
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
   patrolPoints: []
+  preventBeingPushed: 1
+  triggerColliders: []
+  massWhenPreventPushed: 75
+  patrolSpeed: 2
+  wallCheckDistance: 0.2
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  wallCheckPoint: {fileID: 0}
 --- !u!50 &3739804059902710883
 Rigidbody2D:
   serializedVersion: 5
