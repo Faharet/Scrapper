@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8194299571864097685}
   - component: {fileID: 3031753161463640595}
   - component: {fileID: 5385404886582475535}
+  - component: {fileID: 6331101047649726956}
   - component: {fileID: 3013677153794732516}
   m_Layer: 6
   m_Name: BatEnemy
@@ -254,6 +255,50 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3095212, y: 2.3388927}
   m_EdgeRadius: 0
+--- !u!114 &6331101047649726956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240658362785175053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990fa054bc6501e4d95cf740f0f89b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  walkSpeed: 2
+  chaseSpeed: 4
+  detectRadius: 8
+  attackRange: 1.8
+  attackDamage: 20
+  attackCooldown: 1.4
+  attackDelay: 0.5
+  invulnerabilityTime: 0.2
+  loseTargetTime: 3
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  patrolPoints: []
+  preventBeingPushed: 1
+  triggerColliders: []
+  massWhenPreventPushed: 75
+  flightSpeed: 5
+  circlingHeight: 2.5
+  minAllowedHeight: 1.8
+  heightRestoreForce: 6
+  noiseStrength: 1.1
+  smoothTime: 0.12
+  diveMultiplier: 3.2
+  fleeSpeed: 12
+  fleeDuration: 0.7
+  calmDownTime: 2.5
+  attackChancePerSec: 0.1
+  directionChangeInterval: 6
 --- !u!195 &3013677153794732516
 NavMeshAgent:
   m_ObjectHideFlags: 0
