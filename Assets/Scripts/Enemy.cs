@@ -91,6 +91,34 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         // установить первую точку патруля
         if (patrolPoints != null && patrolPoints.Length > 0)
             currentPatrolIndex = 0;
+
+        // Игнорируем столкновения между всеми врагами
+        IgnoreEnemyCollisions();
+    }
+
+    private void IgnoreEnemyCollisions()
+    {
+        // Находим всех врагов в сцене и игнорируем физические столкновения между ними
+        Enemy[] allEnemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        Collider2D[] myColliders = GetComponents<Collider2D>();
+
+        foreach (Enemy otherEnemy in allEnemies)
+        {
+            if (otherEnemy == this) continue;
+
+            Collider2D[] otherColliders = otherEnemy.GetComponents<Collider2D>();
+            
+            foreach (Collider2D myCol in myColliders)
+            {
+                if (myCol.isTrigger) continue; // триггеры не участвуют в физике
+
+                foreach (Collider2D otherCol in otherColliders)
+                {
+                    if (otherCol.isTrigger) continue;
+                    Physics2D.IgnoreCollision(myCol, otherCol, true);
+                }
+            }
+        }
     }
 
     // -----------------------------
@@ -284,7 +312,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (target == null) return;
 
         // Здесь DealDamage вызывает TakeDamage на цели (игроке)
-        if (target.TryGetComponent<IDamageable>(out var dmg))
+        if (target.CompareTag("Player") && target.TryGetComponent<IDamageable>(out var dmg))
             dmg.TakeDamage(attackDamage);
     }
 
@@ -311,21 +339,32 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     // -----------------------------
     public virtual void TakeDamage(float amount)
     {
-        if (state == State.Dead) return;
+        if (state == State.Dead) 
+        {
+            Debug.Log($"{gameObject.name}: TakeDamage ignored - already dead");
+            return;
+        }
 
         // ПРОВЕРКА НЕУЯЗВИМОСТИ: Если i-frames активны, урон игнорируется
-        if (Time.time < lastHitTime + invulnerabilityTime) return;
+        if (Time.time < lastHitTime + invulnerabilityTime) 
+        {
+            Debug.Log($"{gameObject.name}: TakeDamage ignored - in invulnerability (remaining: {Mathf.Max(0, lastHitTime + invulnerabilityTime - Time.time):F2}s)");
+            return;
+        }
 
         currentHealth -= amount;
         lastHitTime = Time.time; // ОБНОВЛЕНИЕ: Это активирует мигание через HandleInvulnerabilityBlinking()
 
-        // В этом методе отсутствует код, вызывающий отдачу (AddForce), что соответствует вашему запросу.
+        Debug.Log($"{gameObject.name}: TakeDamage({amount}) -> Health: {currentHealth:F1}/{maxHealth:F1} (i-frames for {invulnerabilityTime}s)");
 
         if (animator != null)
             animator.SetTrigger("Hit");
 
         if (currentHealth <= 0)
+        {
+            Debug.Log($"{gameObject.name}: Health <= 0, calling Die()");
             Die();
+        }
     }
 
     public virtual void Heal(float amount)
@@ -340,18 +379,69 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     // -----------------------------
     // DIE
     // -----------------------------
-    protected virtual void Die()
+    public virtual void Die()
     {
+        Debug.Log($"{gameObject.name}: Die() called - starting fade out animation");
+        
         state = State.Dead;
 
-        // Если есть SpriteRenderer, убеждаемся, что он виден
-        if (spriteRenderer != null)
-            spriteRenderer.enabled = true; 
+        // Остановить движение
+        if (rb2d != null)
+        {
+            rb2d.linearVelocity = Vector2.zero;
+            rb2d.simulated = false; // отключаем физику, чтобы враг не взаимодействовал
+        }
 
+        // Отключаем все корутины поведения (например, атаки/патруль у наследников)
+        StopAllCoroutines();
+
+        // Отключаем все коллайдеры, чтобы враг не наносил урон и не блокировал
+        var allCols = GetComponents<Collider2D>();
+        foreach (var c in allCols)
+        {
+            c.enabled = false;
+        }
+
+        // Установить анимацию смерти
         if (animator != null)
             animator.SetBool("IsDead", true);
 
-        rb2d.linearVelocity = Vector2.zero;
+        // Запустить исчезновение с анимацией на 1.5 секунды
+        if (spriteRenderer != null)
+            StartCoroutine(FadeOutAndDestroy(1.5f));
+        else
+        {
+            Debug.Log($"{gameObject.name}: No SpriteRenderer found, destroying immediately");
+            Destroy(gameObject);
+        }
+    }
+
+    private System.Collections.IEnumerator FadeOutAndDestroy(float fadeDuration)
+    {
+        Debug.Log($"{gameObject.name}: FadeOutAndDestroy started ({fadeDuration}s)");
+        
+        float elapsedTime = 0f;
+        Color originalColor = spriteRenderer.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            Color newColor = originalColor;
+            newColor.a = alpha;
+            spriteRenderer.color = newColor;
+
+            yield return null;
+        }
+
+        // Убедиться что alpha = 0
+        Color finalColor = originalColor;
+        finalColor.a = 0f;
+        spriteRenderer.color = finalColor;
+
+        Debug.Log($"{gameObject.name}: FadeOutAndDestroy finished, destroying object");
+        // Уничтожить объект
+        Destroy(gameObject);
     }
 
     // -----------------------------

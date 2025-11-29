@@ -13,6 +13,20 @@ public class CameraFollow : MonoBehaviour
     [Tooltip("Время сглаживания движения камеры (чем меньше — тем резче)")]
     public float smoothTime = 0.12f;
 
+    [Header("Hollow Knight-style Look-Ahead")]
+    [Tooltip("Максимальное смещение вперёд в направлении взгляда игрока")]
+    public float lookAheadDistance = 2f;
+    [Tooltip("Вертикальное смещение дополнительно к offset.y")]
+    public float verticalOffset = 0.0f;
+    [Tooltip("Сглаживание смещения взгляда")]
+    public float lookSmoothTime = 0.18f;
+    [Tooltip("Если true, определяем направление взгляда по Rigidbody2D.velocity.x, иначе по localScale.x")] 
+    public bool useRigidbodyForFacing = true;
+    [Tooltip("Минимальная скорость по X для того, чтобы считать что игрок 'смотрит' в сторону движения")]
+    public float facingVelocityThreshold = 0.1f;
+    [Tooltip("Deadzone в мировых координатах — камера не начнёт двигаться пока игрок в этой зоне относительно центра камеры")]
+    public Vector2 deadzone = new Vector2(0.2f, 0.2f);
+
     [Header("Bounds (optional)")]
     [Tooltip("Если true — камера будет зажата внутри границ комнаты")]
     public bool useBounds = false;
@@ -24,6 +38,9 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
     private Camera cam;
+    // internal look-ahead state
+    private float currentLookAheadX = 0f;
+    private float lookAheadVelocity = 0f;
 
     void LateUpdate()
     {
@@ -31,10 +48,37 @@ public class CameraFollow : MonoBehaviour
 
         if (cam == null) cam = GetComponent<Camera>();
 
-        Vector3 targetPos = new Vector3(target.position.x + offset.x, target.position.y + offset.y, offset.z);
+        // Determine facing direction for look-ahead
+        float facingSign = 0f;
+        if (useRigidbodyForFacing)
+        {
+            var rbTarget = target.GetComponent<Rigidbody2D>();
+            if (rbTarget != null && Mathf.Abs(rbTarget.linearVelocity.x) > facingVelocityThreshold)
+                facingSign = Mathf.Sign(rbTarget.linearVelocity.x);
+        }
+        // fallback to transform.localScale.x if needed
+        if (Mathf.Approximately(facingSign, 0f))
+        {
+            if (Mathf.Abs(target.localScale.x) > 0.001f)
+                facingSign = Mathf.Sign(target.localScale.x);
+        }
 
-        // Smooth follow first
-        Vector3 smoothed = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
+        // Desired look-ahead based on facing
+        float desiredLookAhead = facingSign * lookAheadDistance;
+        // Smoothly move current look-ahead to desired value
+        currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, desiredLookAhead, ref lookAheadVelocity, lookSmoothTime);
+
+        // Desired camera position includes offset and look-ahead
+        Vector3 desiredPos = new Vector3(target.position.x + offset.x + currentLookAheadX, target.position.y + offset.y + verticalOffset, offset.z);
+
+        // Deadzone: if player is within deadzone relative to camera center, don't move camera on that axis
+        Vector3 cameraCenter = transform.position;
+        Vector3 diff = desiredPos - cameraCenter;
+        if (Mathf.Abs(diff.x) < deadzone.x) desiredPos.x = cameraCenter.x;
+        if (Mathf.Abs(diff.y) < deadzone.y) desiredPos.y = cameraCenter.y;
+
+        // Smoothly follow to the desired position
+        Vector3 smoothed = Vector3.SmoothDamp(transform.position, desiredPos, ref velocity, smoothTime);
 
         // If bounds are enabled, clamp the camera so viewport stays inside the room
         if (useBounds && cam != null && cam.orthographic)
