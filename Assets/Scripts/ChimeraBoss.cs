@@ -728,7 +728,7 @@ public class ChimeraBoss : Enemy
         blink.StartBlinkAndInvul(duration, blinkInterval);
     }
 
-    protected override void Die()
+    public override void Die()
     {
         if (rb2d != null) rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
