@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 323206393025318775}
   - component: {fileID: 9152754262903973474}
   - component: {fileID: 6460778772466586472}
-  - component: {fileID: 5656438459645967636}
   - component: {fileID: 5355962936321762264}
   m_Layer: 6
   m_Name: ChasingEnemy
@@ -32,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.11, y: -0.81, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4334783836991956000, guid: 105209fcf2f687241938f7f23e69bd3b, type: 3}
+  m_Sprite: {fileID: 3571635775238715396, guid: 7386eca94bfd40e45b3a8eed508a7104, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.58, y: 2.4}
+  m_Size: {x: 0.24, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e59da54639b5704ab95355dd84928db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 35
   startFull: 1
   invulnerabilityTime: 0
   _animator: {fileID: 0}
@@ -113,15 +112,15 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+      - m_Target: {fileID: 5355962936321762264}
+        m_TargetAssemblyTypeName: ChasingEnemy, Assembly-CSharp
         m_MethodName: TakeDamage
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 12
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -131,8 +130,8 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 323206393025318775}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+      - m_Target: {fileID: 5355962936321762264}
+        m_TargetAssemblyTypeName: ChasingEnemy, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
         m_Arguments:
@@ -204,40 +203,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.041628957, y: -0.0037845373}
+  m_Offset: {x: 0.014742311, y: -0.0077519715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.58, y: 2.4}
-    newSize: {x: 1.58, y: 2.4}
+    oldSize: {x: 0.24, y: 0.36}
+    newSize: {x: 0.24, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3095212, y: 2.3388927}
+  m_Size: {x: 0.18726683, y: 0.33570802}
   m_EdgeRadius: 0
---- !u!195 &5656438459645967636
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3809399955728557060}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.79
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.4
-  m_BaseOffset: 1.2
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &5355962936321762264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e80e1c6ead8a5c4b95477bc4076ea03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 35
   walkSpeed: 2
   chaseSpeed: 3
   detectRadius: 6

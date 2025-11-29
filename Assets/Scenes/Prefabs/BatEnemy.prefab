@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 4460574651906633095}
   - component: {fileID: 5277073543191386297}
   - component: {fileID: 3441664867778871836}
-  - component: {fileID: 8194299571864097685}
   - component: {fileID: 3031753161463640595}
   - component: {fileID: 5385404886582475535}
   - component: {fileID: 6331101047649726956}
-  - component: {fileID: 3013677153794732516}
   m_Layer: 6
   m_Name: BatEnemy
   m_TagString: Untagged
@@ -33,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.20408164, y: -1.38322, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4334783836991956000, guid: 105209fcf2f687241938f7f23e69bd3b, type: 3}
+  m_Sprite: {fileID: 3571635775238715396, guid: 7386eca94bfd40e45b3a8eed508a7104, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.58, y: 2.4}
+  m_Size: {x: 0.32, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e59da54639b5704ab95355dd84928db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 24
   startFull: 1
   invulnerabilityTime: 0
   _animator: {fileID: 0}
@@ -114,15 +112,15 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+      - m_Target: {fileID: 6331101047649726956}
+        m_TargetAssemblyTypeName: BatEnemy, Assembly-CSharp
         m_MethodName: TakeDamage
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 12
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -132,8 +130,8 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3441664867778871836}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+      - m_Target: {fileID: 6331101047649726956}
+        m_TargetAssemblyTypeName: BatEnemy, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
         m_Arguments:
@@ -144,44 +142,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8194299571864097685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6240658362785175053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b3fd200648b6c4dacfb49a2646e95d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  walkSpeed: 2
-  chaseSpeed: 4
-  detectRadius: 8
-  attackRange: 1.8
-  attackDamage: 10
-  attackCooldown: 1.4
-  attackDelay: 0.5
-  invulnerabilityTime: 0.2
-  loseTargetTime: 3
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  patrolPoints: []
-  preventBeingPushed: 1
-  triggerColliders: []
-  massWhenPreventPushed: 75
-  patrolSpeed: 2
-  wallCheckDistance: 0.2
-  obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  wallCheckPoint: {fileID: 0}
 --- !u!50 &3031753161463640595
 Rigidbody2D:
   serializedVersion: 5
@@ -243,17 +203,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.041628957, y: -0.0037845373}
+  m_Offset: {x: 0.013699677, y: -0.01048997}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.58, y: 2.4}
-    newSize: {x: 1.58, y: 2.4}
+    oldSize: {x: 0.24, y: 0.36}
+    newSize: {x: 0.32, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3095212, y: 2.3388927}
+  m_Size: {x: 0.18921646, y: 0.33871245}
   m_EdgeRadius: 0
 --- !u!114 &6331101047649726956
 MonoBehaviour:
@@ -267,11 +227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990fa054bc6501e4d95cf740f0f89b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 24
   walkSpeed: 2
-  chaseSpeed: 4
-  detectRadius: 8
-  attackRange: 1.8
+  chaseSpeed: 2
+  detectRadius: 5
+  attackRange: 1
   attackDamage: 20
   attackCooldown: 1.4
   attackDelay: 0.5
@@ -287,37 +247,19 @@ MonoBehaviour:
   preventBeingPushed: 1
   triggerColliders: []
   massWhenPreventPushed: 75
-  flightSpeed: 5
-  circlingHeight: 2.5
-  minAllowedHeight: 1.8
-  heightRestoreForce: 6
-  noiseStrength: 1.1
-  smoothTime: 0.12
-  diveMultiplier: 3.2
-  fleeSpeed: 12
-  fleeDuration: 0.7
-  calmDownTime: 2.5
-  attackChancePerSec: 0.1
-  directionChangeInterval: 6
---- !u!195 &3013677153794732516
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6240658362785175053}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.79
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.4
-  m_BaseOffset: 1.2
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  idleRadius: 0.6
+  idleAngularSpeed: 1.2
+  idleHoverAmplitude: 0.25
+  idleHoverSpeed: 1.5
+  aggroRange: 8
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  riseHeight: 4
+  riseSpeed: 2
+  horizontalAlignSpeed: 2
+  dashSpeed: 3.5
+  dashDuration: 1
+  recoverTime: 0.6
+  reengageDelay: 0.8
+  detectMaxDistance: 12

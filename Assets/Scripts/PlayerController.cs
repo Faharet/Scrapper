@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Health health;
+    private AdrenalineSystem adrenalineSystem;
     private Collider2D[] playerColliders;
     private bool[] prevPlayerColliderIsTrigger;
     private SpriteRenderer[] spriteRenderers;
@@ -150,6 +151,7 @@ public class PlayerController : MonoBehaviour
         }
         defaultGravity = rb.gravityScale;
         health = GetComponent<Health>();
+        adrenalineSystem = GetComponent<AdrenalineSystem>();
 
         // cache sprite renderers for blink effect
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -650,8 +652,12 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing || isKnocked) return;
 
-        // Ввод движения
-        moveInput.x = Input.GetAxisRaw("Horizontal");
+        // Ввод движения - только стрелки
+        moveInput.x = 0f;
+        if (Input.GetKey(KeyCode.RightArrow))
+            moveInput.x = 1f;
+        else if (Input.GetKey(KeyCode.LeftArrow))
+            moveInput.x = -1f;
 
         // Проверяем землю здесь, чтобы ввод прыжка видел актуальное состояние
         if (groundCheck != null)
@@ -903,7 +909,13 @@ public class PlayerController : MonoBehaviour
         foreach (var enemy in hitEnemies)
         {
             IDamageable d = enemy.GetComponent<IDamageable>() ?? enemy.GetComponentInParent<IDamageable>();
-            if (d != null) d.TakeDamage(meleeDamage);
+            if (d != null)
+            {
+                d.TakeDamage(meleeDamage);
+                // Добавляем адреналин за попадание
+                if (adrenalineSystem != null)
+                    adrenalineSystem.AddAdrenaline(meleeDamage);
+            }
         }
     }
 
@@ -919,7 +931,13 @@ public class PlayerController : MonoBehaviour
         foreach (var enemy in hitEnemies)
         {
             IDamageable d = enemy.GetComponent<IDamageable>() ?? enemy.GetComponentInParent<IDamageable>();
-            if (d != null) d.TakeDamage(meleeDamage);
+            if (d != null)
+            {
+                d.TakeDamage(meleeDamage);
+                // Добавляем адреналин за попадание
+                if (adrenalineSystem != null)
+                    adrenalineSystem.AddAdrenaline(meleeDamage);
+            }
         }
     }
 
@@ -935,7 +953,13 @@ public class PlayerController : MonoBehaviour
         foreach (var enemy in hitEnemies)
         {
             IDamageable d = enemy.GetComponent<IDamageable>() ?? enemy.GetComponentInParent<IDamageable>();
-            if (d != null) d.TakeDamage(meleeDamage);
+            if (d != null)
+            {
+                d.TakeDamage(meleeDamage);
+                // Добавляем адреналин за попадание
+                if (adrenalineSystem != null)
+                    adrenalineSystem.AddAdrenaline(meleeDamage);
+            }
         }
     }
 

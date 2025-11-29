@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 4e6efd43ebd97664f9a9f20a7a3479ee
+guid: d63b4f249811ee945a422560b9a2c866
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5551961203326288409
-    second: DEFEND_0
+      213: -4298345892085953899
+    second: sprite_0
   - first:
-      213: -12976263019090658
-    second: DEFEND_1
+      213: 7468057293271108204
+    second: sprite_1
   - first:
-      213: -8048313415167374310
-    second: DEFEND_2
+      213: 2076983720127968420
+    second: sprite_2
   - first:
-      213: 3729738533474728182
-    second: DEFEND_3
+      213: -1842589531783952824
+    second: sprite_3
   - first:
-      213: 7638037057871731419
-    second: DEFEND_4
+      213: -1768044199346558973
+    second: sprite_4
   - first:
-      213: 3724039543734530902
-    second: DEFEND_5
+      213: 1164784180236137431
+    second: sprite_5
+  - first:
+      213: -6330212380425479180
+    second: sprite_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,10 +90,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,133 +118,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DEFEND_0
+      name: sprite_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 22
-        width: 23
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 63
+        y: 0
+        width: 128
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 91283038c478c0d40800000000000000
-      internalID: 5551961203326288409
+      spriteID: 4e7522cd596b7444789aed8ce55f5d4a
+      internalID: -4298345892085953899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DEFEND_1
+      name: sprite_1
       rect:
         serializedVersion: 2
-        x: 127
-        y: 22
-        width: 31
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 314
+        y: 0
+        width: 132
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e1d2c345826e1dff0800000000000000
-      internalID: -12976263019090658
+      spriteID: 4f9957be1e7ff63439d4aefc7cfe2c7d
+      internalID: 7468057293271108204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DEFEND_2
+      name: sprite_2
       rect:
         serializedVersion: 2
-        x: 221
-        y: 22
-        width: 33
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 566
+        y: 0
+        width: 148
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a1c00f73795ae4090800000000000000
-      internalID: -8048313415167374310
+      spriteID: f44a216f8a669794681da54ecc53e86a
+      internalID: 2076983720127968420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DEFEND_3
+      name: sprite_3
       rect:
         serializedVersion: 2
-        x: 316
-        y: 22
-        width: 35
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 834
+        y: 0
+        width: 132
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6f8f8d86f61b2c330800000000000000
-      internalID: 3729738533474728182
+      spriteID: 22d20f3c1c2290a4385f0b42f4728bff
+      internalID: -1842589531783952824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DEFEND_4
+      name: sprite_4
       rect:
         serializedVersion: 2
-        x: 414
-        y: 22
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1082
+        y: 0
+        width: 128
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bdad6bf6c32cff960800000000000000
-      internalID: 7638037057871731419
+      spriteID: 30ff9b22a709e2d4da9d710cf5ba4cf7
+      internalID: -1768044199346558973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DEFEND_5
+      name: sprite_5
       rect:
         serializedVersion: 2
-        x: 512
-        y: 22
-        width: 28
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1334
+        y: 0
+        width: 140
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 653fdc5fb327ea330800000000000000
-      internalID: 3724039543734530902
+      spriteID: 423fb50ec8b8ba645b50f125aeda4152
+      internalID: 1164784180236137431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 0
+        width: 132
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc566b112ebb2d488f5eb72c7054592
+      internalID: -6330212380425479180
       vertices: []
       indices: 
       edges: []
@@ -250,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fab055195e878d648ad512892d82fec0
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DEFEND_0: 5551961203326288409
-      DEFEND_1: -12976263019090658
-      DEFEND_2: -8048313415167374310
-      DEFEND_3: 3729738533474728182
-      DEFEND_4: 7638037057871731419
-      DEFEND_5: 3724039543734530902
+      sprite_0: -4298345892085953899
+      sprite_1: 7468057293271108204
+      sprite_2: 2076983720127968420
+      sprite_3: -1842589531783952824
+      sprite_4: -1768044199346558973
+      sprite_5: 1164784180236137431
+      sprite_6: -6330212380425479180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
