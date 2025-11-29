@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8849231209881262968}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 377930571898729548}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1399999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93,7 +93,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7051404594388885336}
   m_Layer: 7
   m_Name: player_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,6 +220,9 @@ MonoBehaviour:
   maxHealth: 100
   startFull: 1
   invulnerabilityTime: 1
+  _animator: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
+  _blinkSpeed: 20
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -294,6 +297,9 @@ MonoBehaviour:
   upAttackRange: 0.9
   downAttackRange: 0.9
   sideAttackOffset: 0.9
+  attackSideDuration: 0.35
+  attackUpDuration: 0.4
+  attackDownDuration: 0.4
   dashSpeed: 15
   dashDuration: 0.2
   dashCooldown: 2.5
@@ -484,7 +490,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -562,7 +568,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
