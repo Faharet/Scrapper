@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float postDashRunMultiplier = 1.5f;
     [Tooltip("Rate at which the post-dash speed multiplier decays back to 1 (units per second)")]
     [SerializeField] private float postDashDecayRate = 0.8f;
+    [Tooltip("If horizontal speed falls below this after dash, cancel post-dash running")]
+    [SerializeField] private float postDashStopThreshold = 0.1f;
+    [Tooltip("Minimum time (s) after dash during which post-dash running cannot be cancelled by speed check")]
+    [SerializeField] private float postDashMinDuration = 0.1f;
 
     [Header("4. Settings - Checks")]
     [SerializeField] private Transform groundCheck;
@@ -100,6 +104,7 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool isPostDashRunning = false;
     private float postDashCurrentMultiplier = 1f;
+    private float postDashTimer = 0f;
     private float defaultGravity;
 
     private void Start()
@@ -687,7 +692,17 @@ public class PlayerController : MonoBehaviour
             targetVelocityX *= postDashCurrentMultiplier;
             // decay towards 1
             postDashCurrentMultiplier = Mathf.MoveTowards(postDashCurrentMultiplier, 1f, postDashDecayRate * Time.fixedDeltaTime);
-            if (postDashCurrentMultiplier <= 1f + 1e-4f)
+            // decrement the post-dash minimum timer before allowing cancellation from speed check
+            if (postDashTimer > 0f)
+                postDashTimer -= Time.fixedDeltaTime;
+
+            // If the player has essentially stopped moving horizontally after the dash (and the grace timer expired), cancel the post-dash running state
+            if (postDashTimer <= 0f && rb != null && Mathf.Abs(rb.linearVelocity.x) < postDashStopThreshold)
+            {
+                postDashCurrentMultiplier = 1f;
+                isPostDashRunning = false;
+            }
+            else if (postDashCurrentMultiplier <= 1f + 1e-4f)
             {
                 postDashCurrentMultiplier = 1f;
                 isPostDashRunning = false;
@@ -728,13 +743,8 @@ public class PlayerController : MonoBehaviour
                 moving = Mathf.Abs(moveInput.x) > 0.1f && isGrounded;
             anim.SetBool("isMoving", moving);
 
-            // isRunning: true while moving or during post-dash boosted run
-            bool running = false;
-            if (rb != null)
-                running = Mathf.Abs(rb.linearVelocity.x) > 0.1f || isPostDashRunning;
-            else
-                running = Mathf.Abs(moveInput.x) > 0.1f || isPostDashRunning;
-            anim.SetBool("isRunning", running);
+            // isRunning: ONLY true while post-dash boosted run is active
+            anim.SetBool("isRunning", isPostDashRunning);
 
             // isJumping: true while player is moving upward (simple heuristic)
             bool jumping = false;
@@ -860,6 +870,8 @@ public class PlayerController : MonoBehaviour
         // Start post-dash running boost: increases walking speed temporarily and decays back to normal
         postDashCurrentMultiplier = postDashRunMultiplier;
         if (postDashCurrentMultiplier > 1f) isPostDashRunning = true;
+        // start minimum grace timer so running doesn't cancel immediately due to velocity being zeroed
+        postDashTimer = postDashMinDuration;
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;

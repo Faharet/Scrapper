@@ -242,4 +242,3 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 		}
 	}
 }
-
