@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4709413020187721769
+--- !u!1 &3809399955728557060
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 99152272945599824}
-  - component: {fileID: 2290710575561053241}
-  - component: {fileID: 2029865306010412390}
-  - component: {fileID: 456273787553865710}
-  - component: {fileID: 3739804059902710883}
-  - component: {fileID: 3811893592022666311}
-  - component: {fileID: 5711040409951522132}
+  - component: {fileID: 3007921696118278384}
+  - component: {fileID: 5259714963435370811}
+  - component: {fileID: 323206393025318775}
+  - component: {fileID: 9152754262903973474}
+  - component: {fileID: 6460778772466586472}
+  - component: {fileID: 5656438459645967636}
+  - component: {fileID: 5355962936321762264}
   m_Layer: 6
-  m_Name: MeleeEnemy
+  m_Name: ChasingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &99152272945599824
+--- !u!4 &3007921696118278384
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709413020187721769}
+  m_GameObject: {fileID: 3809399955728557060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.11, y: -0.81, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2290710575561053241
+--- !u!212 &5259714963435370811
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709413020187721769}
+  m_GameObject: {fileID: 3809399955728557060}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -92,13 +92,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2029865306010412390
+--- !u!114 &323206393025318775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709413020187721769}
+  m_GameObject: {fileID: 3809399955728557060}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e59da54639b5704ab95355dd84928db, type: 3}
@@ -107,6 +107,9 @@ MonoBehaviour:
   maxHealth: 50
   startFull: 1
   invulnerabilityTime: 0
+  _animator: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
+  _blinkSpeed: 20
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -128,7 +131,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2029865306010412390}
+      - m_Target: {fileID: 323206393025318775}
         m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
@@ -140,50 +143,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &456273787553865710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709413020187721769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b3fd200648b6c4dacfb49a2646e95d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  walkSpeed: 2
-  chaseSpeed: 4
-  detectRadius: 8
-  attackRange: 1.8
-  attackDamage: 10
-  attackCooldown: 1.4
-  loseTargetTime: 3
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  patrolPoints: []
-  preventBeingPushed: 1
-  triggerColliders: []
-  massWhenPreventPushed: 75
-  patrolSpeed: 2
-  wallCheckDistance: 0.2
-  obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  wallCheckPoint: {fileID: 0}
---- !u!50 &3739804059902710883
+--- !u!50 &9152754262903973474
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709413020187721769}
+  m_GameObject: {fileID: 3809399955728557060}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -203,13 +170,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3811893592022666311
+--- !u!61 &6460778772466586472
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709413020187721769}
+  m_GameObject: {fileID: 3809399955728557060}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -249,13 +216,13 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3095212, y: 2.3388927}
   m_EdgeRadius: 0
---- !u!195 &5711040409951522132
+--- !u!195 &5656438459645967636
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709413020187721769}
+  m_GameObject: {fileID: 3809399955728557060}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.79
@@ -271,3 +238,41 @@ NavMeshAgent:
   m_BaseOffset: 1.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5355962936321762264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809399955728557060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e80e1c6ead8a5c4b95477bc4076ea03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  walkSpeed: 2
+  chaseSpeed: 3
+  detectRadius: 6
+  attackRange: 1.8
+  attackDamage: 20
+  attackCooldown: 1.4
+  attackDelay: 0.5
+  invulnerabilityTime: 0.2
+  loseTargetTime: 3
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 129
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  patrolPoints: []
+  preventBeingPushed: 1
+  triggerColliders: []
+  massWhenPreventPushed: 75
+  patrolRadius: 3
+  wallCheckDistance: 0.3
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  wallCheckPoint: {fileID: 0}

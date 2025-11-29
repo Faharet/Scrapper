@@ -1,57 +1,57 @@
 using UnityEngine;
 
-// Simple melee enemy: walks left/right, flips direction when hitting walls.
-// Inherits from abstract Enemy base class.
+/// <summary>
+/// Простая мелли-AI: ходит влево-вправо, разворачивается при стене.
+/// Полностью совместим с Enemy2D.
+/// </summary>
 public class MeleeEnemy : Enemy
 {
     [Header("Melee Movement")]
-    [Tooltip("Local horizontal patrol speed (overrides base walkSpeed for this enemy).")]
+    [Tooltip("Скорость патруля (если 0 — берём walkSpeed из Enemy).")]
     [SerializeField] private float patrolSpeed = 2f;
 
-    [Tooltip("Distance to check for walls ahead (raycast).")]
-    [SerializeField] private float wallCheckDistance = 0.2f;
+    [Tooltip("Дистанция проверки стены вперёд.")]
+    [SerializeField] private float wallCheckDistance = 0.3f;
 
-    [Tooltip("Layers considered as obstacles/walls for flipping direction.")]
+    [Tooltip("Слои препятствий.")]
     [SerializeField] private LayerMask obstacleLayers;
 
-    [Tooltip("Optional point to cast the wall check from. If null, uses transform.position.")]
+    [Tooltip("Точка откуда кастовать Raycast (если null — transform).")]
     [SerializeField] private Transform wallCheckPoint;
 
-    private int moveDir = 1; // 1 = right, -1 = left
+    private int moveDir = 1; // 1 = вправо, -1 = влево
 
     protected override void Start()
     {
         base.Start();
-        // If patrolSpeed not set, use base walkSpeed
-        if (patrolSpeed <= 0f) patrolSpeed = walkSpeed;
 
-        // default wall check point
-        if (wallCheckPoint == null) wallCheckPoint = transform;
+        if (patrolSpeed <= 0f)
+            patrolSpeed = walkSpeed;
 
-        // Randomize initial direction slightly for variety
-        if (Random.value < 0.5f) moveDir = -1;
+        if (wallCheckPoint == null)
+            wallCheckPoint = transform;
+
+        // Немного разнообразия
+        if (Random.value < 0.5f)
+            moveDir = -1;
+
         ApplyFacing();
     }
 
+    /// <summary>
+    /// Патруль — работает ТОЛЬКО если Enemy находится в State.Patrol
+    /// </summary>
     protected override void PatrolUpdate()
     {
-        // Move horizontally using Rigidbody2D when available, otherwise try NavMeshAgent fallback
-        if (rb2d != null)
-        {
-            Vector2 vel = rb2d.linearVelocity;
-            vel.x = moveDir * patrolSpeed;
-            rb2d.linearVelocity = vel;
-        }
-        else if (agent != null)
-        {
-            // Move agent slightly in local horizontal direction
-            Vector3 step = transform.right * (moveDir * patrolSpeed * Time.deltaTime);
-            agent.Move(step);
-        }
+        if (rb2d == null) return;
 
-        // Wall check via raycast in front of the enemy
-        Vector2 origin = wallCheckPoint != null ? (Vector2)wallCheckPoint.position : (Vector2)transform.position;
-        Vector2 dir = Vector2.right * moveDir;
+        // Движение по X
+        rb2d.linearVelocity = new Vector2(moveDir * patrolSpeed, rb2d.linearVelocity.y);
+
+        // Проверка стены
+        Vector2 origin = wallCheckPoint.position;
+        Vector2 dir = new Vector2(moveDir, 0f);
+
         RaycastHit2D hit = Physics2D.Raycast(origin, dir, wallCheckDistance, obstacleLayers);
         if (hit.collider != null)
         {
@@ -59,29 +59,16 @@ public class MeleeEnemy : Enemy
             return;
         }
 
-        // Also check small overlap ahead to catch collisions
-        Collider2D overlap = Physics2D.OverlapCircle(origin + dir * (wallCheckDistance * 0.5f), 0.05f, obstacleLayers);
+        // Маленькая дополнительная проверка
+        Collider2D overlap = Physics2D.OverlapCircle(
+            origin + dir * (wallCheckDistance * 0.5f),
+            0.05f,
+            obstacleLayers
+        );
+
         if (overlap != null)
         {
             FlipDirection();
-            return;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // If we hit an obstacle horizontally, flip direction
-        foreach (var c in collision.contacts)
-        {
-            // Check the contact normal: if it's mostly horizontal opposite to moveDir, flip
-            if (Mathf.Abs(c.normal.x) > 0.5f)
-            {
-                if (Mathf.Sign(c.normal.x) == -moveDir)
-                {
-                    FlipDirection();
-                    return;
-                }
-            }
         }
     }
 
@@ -96,5 +83,21 @@ public class MeleeEnemy : Enemy
         Vector3 s = transform.localScale;
         s.x = Mathf.Abs(s.x) * (moveDir > 0 ? 1f : -1f);
         transform.localScale = s;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Любой боковой удар — разворот
+        foreach (var c in collision.contacts)
+        {
+            if (Mathf.Abs(c.normal.x) > 0.5f)
+            {
+                // Столкновение ВПЕРЕДИ
+                if (Mathf.Sign(c.normal.x) == -moveDir)
+                {
+                    FlipDirection();
+                }
+            }
+        }
     }
 }
