@@ -24,6 +24,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int meleeDamage = 1;
     [SerializeField] private float attackRate = 2f;
     private float nextAttackTime = 0f;
+    [Tooltip("Optional attack point for upward attacks. If null, calculated from player position.")]
+    [SerializeField] private Transform attackPointUp;
+    [Tooltip("Optional attack point for downward attacks. If null, calculated from player position.")]
+    [SerializeField] private Transform attackPointDown;
+    [Tooltip("Range for upward attack (world units)")]
+    [SerializeField] private float upAttackRange = 0.9f;
+    [Tooltip("Range for downward attack (world units)")]
+    [SerializeField] private float downAttackRange = 0.9f;
+    [Tooltip("Extra horizontal offset used when no attackPoint is assigned (side attack)")]
+    [SerializeField] private float sideAttackOffset = 0.9f;
+    [Header("Attack timings")]
+    [Tooltip("Duration in seconds for side attack animation (used to clear trigger)")]
+    [SerializeField] private float attackSideDuration = 0.35f;
+    [Tooltip("Duration in seconds for upward attack animation (used to clear trigger)")]
+    [SerializeField] private float attackUpDuration = 0.4f;
+    [Tooltip("Duration in seconds for downward attack animation (used to clear trigger)")]
+    [SerializeField] private float attackDownDuration = 0.4f;
+
+    // coroutines to clear triggers
+    private Coroutine clearSideTriggerCoroutine = null;
+    private Coroutine clearUpTriggerCoroutine = null;
+    private Coroutine clearDownTriggerCoroutine = null;
 
     [Header("3. Settings - Electro-Dash Ability")]
     [SerializeField] private float dashSpeed = 25f;
@@ -758,6 +780,9 @@ public class PlayerController : MonoBehaviour
             if (rb != null) yVel = rb.linearVelocity.y;
             // set with slight damping so transitions aren't janky
             try { anim.SetFloat("yVelocity", yVel, 0.05f, Time.deltaTime); } catch { anim.SetFloat("yVelocity", yVel); }
+
+            if (anim != null && rb != null)
+                anim.SetFloat("moveSpeed", Mathf.Abs(rb.linearVelocity.x));
         }
     }
 
@@ -823,19 +848,112 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        // anim.SetTrigger("Attack"); // Раскомментировать когда будет анимация
-        if (attackPoint == null) return;
-
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        foreach (Collider2D enemy in hitEnemies)
+        // Determine attack direction based on vertical input
+        float v = Input.GetAxisRaw("Vertical");
+        if (v > 0.5f)
         {
-            IDamageable damageable = enemy.GetComponent<IDamageable>();
-            if (damageable != null)
+            AttackUp();
+            if (anim != null)
             {
-                damageable.TakeDamage(meleeDamage);
+                anim.SetTrigger("AttackUp");
+                if (clearUpTriggerCoroutine != null) StopCoroutine(clearUpTriggerCoroutine);
+                clearUpTriggerCoroutine = StartCoroutine(ClearTriggerAfter("AttackUp", attackUpDuration));
             }
         }
+        else if (v < -0.5f)
+        {
+            AttackDown();
+            if (anim != null)
+            {
+                anim.SetTrigger("AttackDown");
+                if (clearDownTriggerCoroutine != null) StopCoroutine(clearDownTriggerCoroutine);
+                clearDownTriggerCoroutine = StartCoroutine(ClearTriggerAfter("AttackDown", attackDownDuration));
+            }
+        }
+        else
+        {
+            AttackSide();
+            if (anim != null)
+            {
+                if (isFacingRight)
+                {
+                    anim.SetTrigger("AttackRight");
+                    if (clearSideTriggerCoroutine != null) StopCoroutine(clearSideTriggerCoroutine);
+                    clearSideTriggerCoroutine = StartCoroutine(ClearTriggerAfter("AttackRight", attackSideDuration));
+                }
+                else
+                {
+                    anim.SetTrigger("AttackLeft");
+                    if (clearSideTriggerCoroutine != null) StopCoroutine(clearSideTriggerCoroutine);
+                    clearSideTriggerCoroutine = StartCoroutine(ClearTriggerAfter("AttackLeft", attackSideDuration));
+                }
+            }
+        }
+    }
+
+    private void AttackSide()
+    {
+        Vector2 center;
+        if (attackPoint != null)
+            center = attackPoint.position;
+        else
+            center = (Vector2)transform.position + new Vector2((isFacingRight ? 1f : -1f) * sideAttackOffset, 0f);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(center, attackRange, enemyLayers);
+        foreach (var enemy in hitEnemies)
+        {
+            IDamageable d = enemy.GetComponent<IDamageable>() ?? enemy.GetComponentInParent<IDamageable>();
+            if (d != null) d.TakeDamage(meleeDamage);
+        }
+    }
+
+    private void AttackUp()
+    {
+        Vector2 center;
+        if (attackPointUp != null)
+            center = attackPointUp.position;
+        else
+            center = (Vector2)transform.position + Vector2.up * (upAttackRange * 0.5f + 0.1f);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(center, upAttackRange, enemyLayers);
+        foreach (var enemy in hitEnemies)
+        {
+            IDamageable d = enemy.GetComponent<IDamageable>() ?? enemy.GetComponentInParent<IDamageable>();
+            if (d != null) d.TakeDamage(meleeDamage);
+        }
+    }
+
+    private void AttackDown()
+    {
+        Vector2 center;
+        if (attackPointDown != null)
+            center = attackPointDown.position;
+        else
+            center = (Vector2)transform.position + Vector2.down * (downAttackRange * 0.5f + 0.1f);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(center, downAttackRange, enemyLayers);
+        foreach (var enemy in hitEnemies)
+        {
+            IDamageable d = enemy.GetComponent<IDamageable>() ?? enemy.GetComponentInParent<IDamageable>();
+            if (d != null) d.TakeDamage(meleeDamage);
+        }
+    }
+
+    private System.Collections.IEnumerator ClearTriggerAfter(string triggerName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (anim != null)
+            anim.ResetTrigger(triggerName);
+    }
+
+    // Public helper to reset all attack triggers at once (useful for Animation Events)
+    public void ResetAllAttackTriggers()
+    {
+        if (anim == null) return;
+        anim.ResetTrigger("AttackRight");
+        anim.ResetTrigger("AttackLeft");
+        anim.ResetTrigger("AttackUp");
+        anim.ResetTrigger("AttackDown");
     }
 
     private IEnumerator DashAbility()
@@ -888,6 +1006,16 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
+        if (attackPointUp != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(attackPointUp.position, upAttackRange);
+        }
+        if (attackPointDown != null)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(attackPointDown.position, downAttackRange);
         }
     }
 }

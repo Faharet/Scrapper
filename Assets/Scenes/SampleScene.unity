@@ -979,22 +979,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 337100922593120761, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_Size.x
-      value: 0.26223564
-      objectReference: {fileID: 0}
-    - target: {fileID: 337100922593120761, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_Size.y
-      value: 0.3682538
-      objectReference: {fileID: 0}
-    - target: {fileID: 337100922593120761, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.010298409
-      objectReference: {fileID: 0}
-    - target: {fileID: 337100922593120761, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.17737801
-      objectReference: {fileID: 0}
-    - target: {fileID: 337100922593120761, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0
       objectReference: {fileID: 0}
@@ -1010,13 +994,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1104298726203820373, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: dashCooldown
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1104298726203820373, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: postDashRunMultiplier
-      value: 2
+    - target: {fileID: 2827611349906072247, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2980294734615813478, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
       propertyPath: m_Name
@@ -1026,33 +1006,9 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4337340088729087001, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 815424164945274260, guid: e3672111a0967e14488a7ea93f140e66, type: 3}
-    - target: {fileID: 4337340088729087001, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7051404594388885336, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 826ac378f48c47c4b9db894038c4b0f0, type: 2}
-    - target: {fileID: 7051404594388885336, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_AnimatePhysics
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8105865322692024605, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8105865322692024605, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8105865322692024605, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
+    - target: {fileID: 7410086056201340887, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8105865322692024605, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1094,8 +1050,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8105865322692024605, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
-      propertyPath: m_ConstrainProportionsScale
+    - target: {fileID: 8234100505655116132, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8849231209881262968, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
