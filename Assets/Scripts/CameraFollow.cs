@@ -42,6 +42,24 @@ public class CameraFollow : MonoBehaviour
     private float currentLookAheadX = 0f;
     private float lookAheadVelocity = 0f;
 
+    private void Awake()
+    {
+        cam = GetComponent<Camera>();
+        if (cam != null)
+        {
+            // Устанавливаем Solid Color режим для фона
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            
+            // Устанавливаем черный фон камеры
+            cam.backgroundColor = Color.black;
+            
+            // Убеждаемся что камера покрывает весь экран
+            cam.rect = new Rect(0, 0, 1, 1);
+            
+            Debug.Log($"CameraFollow: Фон камеры установлен в Solid Color (черный)");
+        }
+    }
+
     void LateUpdate()
     {
         if (target == null) return;
@@ -81,10 +99,23 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothed = Vector3.SmoothDamp(transform.position, desiredPos, ref velocity, smoothTime);
 
         // If bounds are enabled, clamp the camera so viewport stays inside the room
-        if (useBounds && cam != null && cam.orthographic)
+        if (useBounds && cam != null)
         {
-            float halfHeight = cam.orthographicSize;
-            float halfWidth = halfHeight * cam.aspect;
+            float halfHeight, halfWidth;
+            
+            // Вычисляем размеры viewport в зависимости от типа камеры
+            if (cam.orthographic)
+            {
+                halfHeight = cam.orthographicSize;
+                halfWidth = halfHeight * cam.aspect;
+            }
+            else // Perspective
+            {
+                // Для perspective камеры вычисляем размер viewport на расстоянии от камеры до цели
+                float distance = Mathf.Abs(smoothed.z - target.position.z);
+                halfHeight = distance * Mathf.Tan(cam.fieldOfView * 0.5f * Mathf.Deg2Rad);
+                halfWidth = halfHeight * cam.aspect;
+            }
 
             // Determine world-space min/max from collider if provided
             Vector2 worldMin = minBounds;

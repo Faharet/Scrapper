@@ -1,0 +1,281 @@
+fileFormatVersion: 2
+guid: 65b8d1ddd25cf3745ad59bba1856c151
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 647094654120606456
+    second: sprite_drone_walk_0
+  - first:
+      213: 2259260732912151030
+    second: sprite_drone_walk_1
+  - first:
+      213: 3859019077822843084
+    second: sprite_drone_walk_2
+  - first:
+      213: -8803306648962578998
+    second: sprite_drone_walk_3
+  - first:
+      213: -4098979253484466342
+    second: sprite_drone_walk_4
+  - first:
+      213: -7871732416694149848
+    second: sprite_drone_walk_5
+  - first:
+      213: 5554966596181744551
+    second: sprite_drone_walk_6
+  - first:
+      213: -4405807827776260696
+    second: sprite_drone_walk_7
+  - first:
+      213: -2757332531669949937
+    second: sprite_drone_walk_8
+  - first:
+      213: -7309442026454808098
+    second: sprite_drone_walk_9
+  - first:
+      213: 5506627014021070636
+    second: sprite_drone_walk_10
+  - first:
+      213: -4483152941866800218
+    second: sprite_drone_walk_11
+  - first:
+      213: -4199005053725207425
+    second: sprite_drone_walk_12
+  - first:
+      213: 3416672261042891001
+    second: sprite_drone_walk_13
+  - first:
+      213: -8327339941303847998
+    second: sprite_drone_walk_14
+  - first:
+      213: -1064056552513381261
+    second: sprite_drone_walk_15
+  - first:
+      213: 8277714527730849724
+    second: sprite_drone_walk_16
+  - first:
+      213: -5820696784161890192
+    second: sprite_drone_walk_17
+  - first:
+      213: -2955387582303351861
+    second: sprite_drone_walk_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_drone_walk_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 22
+        width: 216
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fab9e2d821faf800800000000000000
+      internalID: 647094654120606456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_drone_walk_1
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 22
+        width: 216
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9a730aaa18a5f10800000000000000
+      internalID: 2259260732912151030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_drone_walk_3
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 22
+        width: 216
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac540c3ae3f54d580800000000000000
+      internalID: -8803306648962578998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_drone_walk_6
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 22
+        width: 216
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7abd29010b4371d40800000000000000
+      internalID: 5554966596181744551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e9ded98c95af30043b3d04e1aff6f0c4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sprite_drone_walk_0: 647094654120606456
+      sprite_drone_walk_1: 2259260732912151030
+      sprite_drone_walk_10: 5506627014021070636
+      sprite_drone_walk_11: -4483152941866800218
+      sprite_drone_walk_12: -4199005053725207425
+      sprite_drone_walk_13: 3416672261042891001
+      sprite_drone_walk_14: -8327339941303847998
+      sprite_drone_walk_15: -1064056552513381261
+      sprite_drone_walk_16: 8277714527730849724
+      sprite_drone_walk_17: -5820696784161890192
+      sprite_drone_walk_18: -2955387582303351861
+      sprite_drone_walk_2: 3859019077822843084
+      sprite_drone_walk_3: -8803306648962578998
+      sprite_drone_walk_4: -4098979253484466342
+      sprite_drone_walk_5: -7871732416694149848
+      sprite_drone_walk_6: 5554966596181744551
+      sprite_drone_walk_7: -4405807827776260696
+      sprite_drone_walk_8: -2757332531669949937
+      sprite_drone_walk_9: -7309442026454808098
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

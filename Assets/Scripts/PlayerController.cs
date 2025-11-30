@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Health health;
     private AdrenalineSystem adrenalineSystem;
+    private PlayerInventory inventory;
     private Collider2D[] playerColliders;
     private bool[] prevPlayerColliderIsTrigger;
     private SpriteRenderer[] spriteRenderers;
@@ -152,6 +153,7 @@ public class PlayerController : MonoBehaviour
         defaultGravity = rb.gravityScale;
         health = GetComponent<Health>();
         adrenalineSystem = GetComponent<AdrenalineSystem>();
+        inventory = GetComponent<PlayerInventory>();
 
         // cache sprite renderers for blink effect
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -666,7 +668,8 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
 
         // Прыжок — используем jump buffer: запоминаем нажатие
-        if (Input.GetButtonDown("Jump"))
+        // Только если есть труба
+        if (Input.GetButtonDown("Jump") && (inventory == null || inventory.CanJump()))
         {
             jumpBufferCounter = jumpBufferTime;
         }
@@ -677,9 +680,16 @@ public class PlayerController : MonoBehaviour
                 jumpBufferCounter -= Time.deltaTime;
         }
 
-        // Атака (кнопка X)
+        // Атака (кнопка X) - только если есть труба
         if (!isKnocked && Input.GetKeyDown(KeyCode.X))
         {
+            // Проверяем наличие трубы
+            if (inventory != null && !inventory.HasPipe)
+            {
+                Debug.Log("PlayerController: Нельзя атаковать без трубы!");
+                return;
+            }
+            
             if (Time.time >= nextAttackTime)
             {
                 Attack();
@@ -687,8 +697,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Рывок (кнопка C)
-        if (!isKnocked && Input.GetKeyDown(KeyCode.C) && canDash)
+        // Рывок (кнопка C) - только если есть труба
+        if (!isKnocked && Input.GetKeyDown(KeyCode.C) && canDash && (inventory == null || inventory.CanDash()))
         {
             StartCoroutine(DashAbility());
         }

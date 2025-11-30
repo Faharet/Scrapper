@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3031753161463640595}
   - component: {fileID: 5385404886582475535}
   - component: {fileID: 6331101047649726956}
+  - component: {fileID: 8003076159478127350}
   m_Layer: 6
   m_Name: BatEnemy
   m_TagString: Untagged
@@ -80,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3571635775238715396, guid: 7386eca94bfd40e45b3a8eed508a7104, type: 3}
+  m_Sprite: {fileID: -1754456985825134301, guid: 574d791f3d874ce4589addd9e2c85360, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.36}
+  m_Size: {x: 0.265, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -203,17 +204,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.013699677, y: -0.01048997}
+  m_Offset: {x: -0.0006502196, y: 0.00083884597}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.24, y: 0.36}
-    newSize: {x: 0.32, y: 0.36}
+    oldSize: {x: 0.265, y: 0.28}
+    newSize: {x: 0.265, y: 0.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.18921646, y: 0.33871245}
+  m_Size: {x: 0.26927376, y: 0.28584445}
   m_EdgeRadius: 0
 --- !u!114 &6331101047649726956
 MonoBehaviour:
@@ -231,12 +232,12 @@ MonoBehaviour:
   walkSpeed: 2
   chaseSpeed: 2
   detectRadius: 5
-  attackRange: 1
+  attackRange: 0.43
   attackDamage: 20
   attackCooldown: 1.4
   attackDelay: 0.5
   invulnerabilityTime: 0.2
-  loseTargetTime: 3
+  loseTargetTime: 1.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -263,3 +264,25 @@ MonoBehaviour:
   recoverTime: 0.6
   reengageDelay: 0.8
   detectMaxDistance: 12
+--- !u!95 &8003076159478127350
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240658362785175053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bc1921e86179524192f03067801a31c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

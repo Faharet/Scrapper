@@ -60,20 +60,6 @@ public class ChimeraBoss : Enemy
 
         localSpriteRenderer = GetComponent<SpriteRenderer>();
 
-        GameObject playerObj = GameObject.FindWithTag("Player");
-        if (playerObj != null)
-        {
-            target = playerObj.transform;
-            playerController = playerObj.GetComponent<PlayerController>();
-            playerRb = playerObj.GetComponent<Rigidbody2D>();
-            playerDamageable = playerObj.GetComponent<IDamageable>();
-        }
-        else
-        {
-            Debug.LogError("ChimeraBoss: Игрок не найден!");
-            return;
-        }
-
         currentPhase = BossPhase.Phase0_Sleep;
         state = State.Chase;
         nextAttackTime = Time.time + attackCooldownBase;

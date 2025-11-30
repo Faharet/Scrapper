@@ -45,6 +45,25 @@ public class ChasingEnemy : Enemy
     {
         if (rb2d == null) return;
 
+        // Устанавливаем триггер idle/run в зависимости от скорости
+        if (animator != null)
+        {
+            float speed = Mathf.Abs(rb2d.linearVelocity.x);
+            animator.SetFloat("Speed", speed);
+            
+            // Триггеры для состояний
+            if (speed < 0.1f)
+            {
+                animator.SetTrigger("Idle");
+                animator.ResetTrigger("Run");
+            }
+            else
+            {
+                animator.SetTrigger("Run");
+                animator.ResetTrigger("Idle");
+            }
+        }
+
         // Проверка границ патруля
         float currentX = transform.position.x;
         float startX = startPosition.x;
@@ -65,9 +84,6 @@ public class ChasingEnemy : Enemy
         }
 
         rb2d.linearVelocity = new Vector2(moveDir * walkSpeed, rb2d.linearVelocity.y);
-
-        if (animator != null)
-            animator.SetFloat("Speed", Mathf.Abs(rb2d.linearVelocity.x));
     }
 
     // -----------------------------
@@ -75,6 +91,14 @@ public class ChasingEnemy : Enemy
     // -----------------------------
     protected override void ChaseUpdate()
     {
+        // Устанавливаем триггер Run при преследовании
+        if (animator != null)
+        {
+            animator.SetTrigger("Run");
+            animator.ResetTrigger("Idle");
+            animator.ResetTrigger("Attack");
+        }
+        
         // Теперь здесь происходит и движение, и остановка, и нанесение урона.
         base.ChaseUpdate(); 
         

@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: c4e5fc579b43d294e921a1b45f05b946
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5825983203625489862
+    second: sprite_drone_punch_0
+  - first:
+      213: 6871025108579649384
+    second: sprite_drone_punch_1
+  - first:
+      213: 6091568068313098786
+    second: sprite_drone_punch_2
+  - first:
+      213: -3869143964920557176
+    second: sprite_drone_punch_3
+  - first:
+      213: 6844016440605816557
+    second: sprite_drone_punch_4
+  - first:
+      213: -5610599125223261868
+    second: sprite_drone_punch_5
+  - first:
+      213: 6821126649144268030
+    second: sprite_drone_punch_6
+  - first:
+      213: -7680660231138530706
+    second: sprite_drone_punch_7
+  - first:
+      213: -4716070321916380678
+    second: sprite_drone_punch_8
+  - first:
+      213: -8717107392566162308
+    second: sprite_drone_punch_9
+  - first:
+      213: 3837513191113678520
+    second: sprite_drone_punch_10
+  - first:
+      213: 8005231281434031704
+    second: sprite_drone_punch_11
+  - first:
+      213: 7209488377067034604
+    second: sprite_drone_punch_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_drone_punch_0
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 0
+        width: 230
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3aa288c423f52fa0800000000000000
+      internalID: -5825983203625489862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_drone_punch_2
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 230
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22a2ae432e8998450800000000000000
+      internalID: 6091568068313098786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_drone_punch_3
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 230
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8815012401a0e4ac0800000000000000
+      internalID: -3869143964920557176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_drone_punch_5
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 0
+        width: 240
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45933f362d52322b0800000000000000
+      internalID: -5610599125223261868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3ad7a33485c81b541b8e87e724cb7f37
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sprite_drone_punch_0: -5825983203625489862
+      sprite_drone_punch_1: 6871025108579649384
+      sprite_drone_punch_10: 3837513191113678520
+      sprite_drone_punch_11: 8005231281434031704
+      sprite_drone_punch_12: 7209488377067034604
+      sprite_drone_punch_2: 6091568068313098786
+      sprite_drone_punch_3: -3869143964920557176
+      sprite_drone_punch_4: 6844016440605816557
+      sprite_drone_punch_5: -5610599125223261868
+      sprite_drone_punch_6: 6821126649144268030
+      sprite_drone_punch_7: -7680660231138530706
+      sprite_drone_punch_8: -4716070321916380678
+      sprite_drone_punch_9: -8717107392566162308
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

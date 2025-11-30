@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8173350448978920782}
   - component: {fileID: 1983593774942700597}
   - component: {fileID: 4883537960978658213}
+  - component: {fileID: 4524640291375865150}
   m_Layer: 6
   m_Name: ChimeraBoss
   m_TagString: Untagged
@@ -80,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 815424164945274260, guid: e3672111a0967e14488a7ea93f140e66, type: 3}
+  m_Sprite: {fileID: 4911491402454943154, guid: d33c13451321e6b4a9a1ba480071c156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.38, y: 0.38}
+  m_Size: {x: 0.315, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,6 +110,8 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   _blinkSpeed: 20
+  isPlayer: 0
+  deathDelayBeforeReload: 2
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -203,17 +206,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.000011712313, y: 0.16772112}
+  m_Offset: {x: 0.0020011067, y: 0.09510624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.38, y: 0.38}
-    newSize: {x: 0.38, y: 0.38}
+    oldSize: {x: 0.315, y: 0.32}
+    newSize: {x: 0.315, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.19353047, y: 0.34071034}
+  m_Size: {x: 0.31295884, y: 0.19548057}
   m_EdgeRadius: 0
 --- !u!114 &4883537960978658213
 MonoBehaviour:
@@ -252,30 +255,44 @@ MonoBehaviour:
   chargedTailCollider: {fileID: 0}
   tailAttackCollider: {fileID: 0}
   biteAttackCollider: {fileID: 0}
-  selfDestructAoE: {fileID: 0}
   tailTransform: {fileID: 0}
   tailRange: 2
   tailHitMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  tailInvulDuration: 0.8
-  tailBlinkInterval: 0.08
+  tailKnockbackForce: 3
   phase2Threshold: 0.7
-  phase3Threshold: 0.3
-  lastStandThreshold: 0.1
   attackCooldownBase: 3.5
-  attackDelayBase: 0.3
   biteAttackDuration: 0.5
   biteLungeDistance: 4
   biteRadius: 2.5
   chargedTailDuration: 3
-  selfDestructChargeTime: 3
-  finalLungeDuration: 1.2
   tailAttackDuration: 0.6
   tailDamage: 15
   biteDamage: 20
   chargedTailTickDamage: 5
-  selfDestructDamage: 50
   sleepDuration: 5
   playerSlowAmount: 0.5
   wakeUpTriggerDistance: 3
+--- !u!95 &4524640291375865150
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7101866089519122987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19496b6071455384ab9dfe07aac9dffd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

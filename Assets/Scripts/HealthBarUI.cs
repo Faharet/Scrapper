@@ -130,6 +130,20 @@ public class HealthBarUI : MonoBehaviour
 
     private void Update()
     {
+        // Проверяем что ссылка на playerHealth актуальна
+        if (playerHealth == null || playerHealth.gameObject == null)
+        {
+            // Переподключаемся к игроку (например после смены сцены)
+            Unsubscribe();
+            TryAutoFind();
+            Subscribe();
+            
+            if (playerHealth != null)
+            {
+                Refresh();
+            }
+        }
+        
         // Keep a fallback poll in case events are not wired or the Health implementation changes
         if (playerHealth != null && fillImage == null && slider == null && debug)
         {

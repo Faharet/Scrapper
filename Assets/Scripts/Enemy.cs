@@ -255,7 +255,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             hasDealtDamage = false; // Начинаем новый цикл
 
             if (animator != null)
+            {
                 animator.SetTrigger("Attack");
+                animator.ResetTrigger("Idle");
+                animator.ResetTrigger("Run");
+            }
         }
     }
 
@@ -384,6 +388,16 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         Debug.Log($"{gameObject.name}: Die() called - starting fade out animation");
         
         state = State.Dead;
+
+        // Устанавливаем триггер Die в аниматоре
+        if (animator != null)
+        {
+            animator.SetTrigger("Die");
+            animator.ResetTrigger("Idle");
+            animator.ResetTrigger("Run");
+            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("Hit");
+        }
 
         // Остановить движение
         if (rb2d != null)

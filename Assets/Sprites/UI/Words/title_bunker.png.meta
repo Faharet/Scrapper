@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: c2738267dadddb04ea300bfbe4a23b39
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6502059767894443307
+    second: title_bunker_0
+  - first:
+      213: -8178240637651909884
+    second: title_bunker_1
+  - first:
+      213: 3095258755175927985
+    second: title_bunker_2
+  - first:
+      213: 8201300857987835650
+    second: title_bunker_3
+  - first:
+      213: -4556375000190313188
+    second: title_bunker_4
+  - first:
+      213: -2669653183607822075
+    second: title_bunker_5
+  - first:
+      213: 7249687971707613967
+    second: title_bunker_6
+  - first:
+      213: -4061584204275989159
+    second: title_bunker_7
+  - first:
+      213: 1760867372724066813
+    second: title_bunker_8
+  - first:
+      213: -4837837622671439070
+    second: title_bunker_9
+  - first:
+      213: 1295748782108947509
+    second: title_bunker_10
+  - first:
+      213: -1158581768202296771
+    second: title_bunker_11
+  - first:
+      213: 5842941690796463120
+    second: title_bunker_12
+  - first:
+      213: -3984380644307571142
+    second: title_bunker_13
+  - first:
+      213: -526791662045586772
+    second: title_bunker_14
+  - first:
+      213: 246038920548416235
+    second: title_bunker_15
+  - first:
+      213: -1926245042879396198
+    second: title_bunker_16
+  - first:
+      213: -1196019689516447232
+    second: title_bunker_17
+  - first:
+      213: 1538237676459185526
+    second: title_bunker_18
+  - first:
+      213: 6818512398061805098
+    second: title_bunker_19
+  - first:
+      213: 7202495088782256139
+    second: title_bunker_20
+  - first:
+      213: -8300812406159517730
+    second: title_bunker_21
+  - first:
+      213: -4050195519201545060
+    second: title_bunker_22
+  - first:
+      213: -5214795150285803376
+    second: title_bunker_23
+  - first:
+      213: -2245320423388781895
+    second: title_bunker_24
+  - first:
+      213: -3062889333583882042
+    second: title_bunker_25
+  - first:
+      213: -3182512178740357187
+    second: title_bunker_26
+  - first:
+      213: -8282592876360383321
+    second: title_bunker_27
+  - first:
+      213: -251950357254920901
+    second: title_bunker_28
+  - first:
+      213: 8036438848682952233
+    second: title_bunker_29
+  - first:
+      213: -4310969922925400735
+    second: title_bunker_30
+  - first:
+      213: -9025571471189820711
+    second: title_bunker_31
+  - first:
+      213: -6401289311108739316
+    second: title_bunker_32
+  - first:
+      213: 52970626388828737
+    second: title_bunker_33
+  - first:
+      213: 7548428785120797686
+    second: title_bunker_34
+  - first:
+      213: 8003835176827398602
+    second: title_bunker_35
+  - first:
+      213: 2571994842267165351
+    second: title_bunker_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: title_bunker_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 308
+        width: 1024
+        height: 716
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 282}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dafa4a271b04c5a0800000000000000
+      internalID: -6502059767894443307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ba31a1a4475202943b2924a95e7a9b2a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      title_bunker_0: -6502059767894443307
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

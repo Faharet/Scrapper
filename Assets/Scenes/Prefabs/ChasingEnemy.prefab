@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9152754262903973474}
   - component: {fileID: 6460778772466586472}
   - component: {fileID: 5355962936321762264}
+  - component: {fileID: 1561031248140908996}
   m_Layer: 6
   m_Name: ChasingEnemy
   m_TagString: Untagged
@@ -80,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3571635775238715396, guid: 7386eca94bfd40e45b3a8eed508a7104, type: 3}
+  m_Sprite: {fileID: 1990427712142753798, guid: 73936db9aff3b45408eeb66677118151, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.36}
+  m_Size: {x: 0.29, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,6 +110,8 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   _blinkSpeed: 20
+  isPlayer: 0
+  deathDelayBeforeReload: 2
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -203,17 +206,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.014742311, y: -0.0077519715}
+  m_Offset: {x: 0.00061774254, y: 0.14984728}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.24, y: 0.36}
-    newSize: {x: 0.24, y: 0.36}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.29, y: 0.32}
+    newSize: {x: 0.29, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.18726683, y: 0.33570802}
+  m_Size: {x: 0.29580218, y: 0.30299875}
   m_EdgeRadius: 0
 --- !u!114 &5355962936321762264
 MonoBehaviour:
@@ -231,12 +234,12 @@ MonoBehaviour:
   walkSpeed: 2
   chaseSpeed: 3
   detectRadius: 6
-  attackRange: 1.8
+  attackRange: 1.3
   attackDamage: 20
   attackCooldown: 1.4
   attackDelay: 0.5
   invulnerabilityTime: 0.2
-  loseTargetTime: 3
+  loseTargetTime: 1.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 129
@@ -253,3 +256,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   wallCheckPoint: {fileID: 0}
+--- !u!95 &1561031248140908996
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809399955728557060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecf132818ad71af45815f20f057e53fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

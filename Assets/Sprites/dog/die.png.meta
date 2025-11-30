@@ -1,0 +1,262 @@
+fileFormatVersion: 2
+guid: 99b543d59c8dd2c43bafedd77bd70134
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2872450109406877269
+    second: sprite_dog_death_0
+  - first:
+      213: 1773930244248048535
+    second: sprite_dog_death_1
+  - first:
+      213: 7934936000550053315
+    second: sprite_dog_death_2
+  - first:
+      213: -584602864564445941
+    second: sprite_dog_death_3
+  - first:
+      213: -5164405174061355246
+    second: sprite_dog_death_4
+  - first:
+      213: -1699303759900167374
+    second: sprite_dog_death_5
+  - first:
+      213: -8807378167281247896
+    second: sprite_dog_death_6
+  - first:
+      213: -4431812545830999442
+    second: sprite_dog_death_7
+  - first:
+      213: -5952738412007623231
+    second: sprite_dog_death_8
+  - first:
+      213: 7391502420572247417
+    second: sprite_dog_death_9
+  - first:
+      213: -6271637584342297000
+    second: sprite_dog_death_10
+  - first:
+      213: -9170207181831782076
+    second: sprite_dog_death_11
+  - first:
+      213: 4779315893315079379
+    second: sprite_dog_death_12
+  - first:
+      213: -668894129292552388
+    second: sprite_dog_death_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_dog_death_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 232
+        height: 238
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5569a36d72efcd720800000000000000
+      internalID: 2872450109406877269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dog_death_6
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 232
+        height: 238
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8699ba86838e5c580800000000000000
+      internalID: -8807378167281247896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dog_death_8
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 232
+        height: 238
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5767704ff936da0800000000000000
+      internalID: -5952738412007623231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die_0
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 0
+        width: 232
+        height: 238
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c2478f944f1dc4c9e72430c1a1bf1d
+      internalID: -1503639489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 49aa20792d34b9e478db062929ae1b3d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      die_0: -1503639489
+      sprite_dog_death_0: 2872450109406877269
+      sprite_dog_death_1: 1773930244248048535
+      sprite_dog_death_10: -6271637584342297000
+      sprite_dog_death_11: -9170207181831782076
+      sprite_dog_death_12: 4779315893315079379
+      sprite_dog_death_13: -668894129292552388
+      sprite_dog_death_2: 7934936000550053315
+      sprite_dog_death_3: -584602864564445941
+      sprite_dog_death_4: -5164405174061355246
+      sprite_dog_death_5: -1699303759900167374
+      sprite_dog_death_6: -8807378167281247896
+      sprite_dog_death_7: -4431812545830999442
+      sprite_dog_death_8: -5952738412007623231
+      sprite_dog_death_9: 7391502420572247417
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

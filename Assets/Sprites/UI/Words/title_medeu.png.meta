@@ -1,0 +1,1209 @@
+fileFormatVersion: 2
+guid: ed82745d72da8b74c9fb8ea05c81740d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 506692867717706134
+    second: title_medeu_0
+  - first:
+      213: 2739942330193941595
+    second: title_medeu_1
+  - first:
+      213: 7707427463347966904
+    second: title_medeu_2
+  - first:
+      213: 7430908676354403024
+    second: title_medeu_3
+  - first:
+      213: -7795237417459690337
+    second: title_medeu_4
+  - first:
+      213: -634345120929473997
+    second: title_medeu_5
+  - first:
+      213: 6021864443854163710
+    second: title_medeu_6
+  - first:
+      213: -2919985092857466256
+    second: title_medeu_7
+  - first:
+      213: 1398277002108335681
+    second: title_medeu_8
+  - first:
+      213: 3382014635834241666
+    second: title_medeu_9
+  - first:
+      213: 5722578767975480241
+    second: title_medeu_10
+  - first:
+      213: 2780451733437385052
+    second: title_medeu_11
+  - first:
+      213: 4358544018997778585
+    second: title_medeu_12
+  - first:
+      213: 1713203049520865992
+    second: title_medeu_13
+  - first:
+      213: -146331159845754052
+    second: title_medeu_14
+  - first:
+      213: -3154058791182633349
+    second: title_medeu_15
+  - first:
+      213: 131731618446789598
+    second: title_medeu_16
+  - first:
+      213: 5629693455010413378
+    second: title_medeu_17
+  - first:
+      213: 981648538513595386
+    second: title_medeu_18
+  - first:
+      213: -9024029376331586105
+    second: title_medeu_19
+  - first:
+      213: 5959223630699917022
+    second: title_medeu_20
+  - first:
+      213: 7630421337371883385
+    second: title_medeu_21
+  - first:
+      213: 1358196633467959532
+    second: title_medeu_22
+  - first:
+      213: -6388854469110852099
+    second: title_medeu_23
+  - first:
+      213: 7564116219450857613
+    second: title_medeu_24
+  - first:
+      213: 2346891946826976728
+    second: title_medeu_25
+  - first:
+      213: -5608411961986234367
+    second: title_medeu_26
+  - first:
+      213: 7815918183037908451
+    second: title_medeu_27
+  - first:
+      213: -1758335908737586483
+    second: title_medeu_28
+  - first:
+      213: 8968103979085828762
+    second: title_medeu_29
+  - first:
+      213: 650081938142817272
+    second: title_medeu_30
+  - first:
+      213: -2399404634479003075
+    second: title_medeu_31
+  - first:
+      213: -4121997517278705030
+    second: title_medeu_32
+  - first:
+      213: 5498847632766715880
+    second: title_medeu_33
+  - first:
+      213: 1791018835486064474
+    second: title_medeu_34
+  - first:
+      213: -6137379165984810166
+    second: title_medeu_35
+  - first:
+      213: -1434276495457873546
+    second: title_medeu_36
+  - first:
+      213: -123009405810284552
+    second: title_medeu_37
+  - first:
+      213: 1236870932015925257
+    second: title_medeu_38
+  - first:
+      213: -7566326735060303904
+    second: title_medeu_39
+  - first:
+      213: -6259373616097971622
+    second: title_medeu_40
+  - first:
+      213: -3146170537251776094
+    second: title_medeu_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: title_medeu_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 432
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691b9868a72280700800000000000000
+      internalID: 506692867717706134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 624
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b541440580b360620800000000000000
+      internalID: 2739942330193941595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 550
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b312f4317846fa60800000000000000
+      internalID: 7707427463347966904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 647
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dae87c0214ef1760800000000000000
+      internalID: 7430908676354403024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_4
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 638
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f945b78aed0c1d390800000000000000
+      internalID: -7795237417459690337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 416
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a1ff1397a5237f0800000000000000
+      internalID: -634345120929473997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 735
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe8b757ec5f19350800000000000000
+      internalID: 6021864443854163710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_7
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 679
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0727bce57012a77d0800000000000000
+      internalID: -2919985092857466256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 487
+        width: 381
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 146f348668da76310800000000000000
+      internalID: 1398277002108335681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_9
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 302
+        width: 116
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282721284645fee20800000000000000
+      internalID: 3382014635834241666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_10
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 195
+        width: 179
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbfe58e11faa6f40800000000000000
+      internalID: 5722578767975480241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_11
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 0
+        width: 1073
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5987aebe16269620800000000000000
+      internalID: 2780451733437385052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_12
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 197
+        width: 84
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 998144651b8ac7c30800000000000000
+      internalID: 4358544018997778585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_13
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 198
+        width: 211
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2aecab81586c710800000000000000
+      internalID: 1713203049520865992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_14
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 495
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ba2ddd59028fdf0800000000000000
+      internalID: -146331159845754052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_15
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 503
+        width: 190
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b767cd68d388a34d0800000000000000
+      internalID: -3154058791182633349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_16
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 487
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb4533853104d100800000000000000
+      internalID: 131731618446789598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_17
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 489
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24bbc34be50b02e40800000000000000
+      internalID: 5629693455010413378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_18
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 496
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb526015248f9d00800000000000000
+      internalID: 981648538513595386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_19
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 485
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5e015f71534c280800000000000000
+      internalID: -9024029376331586105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_20
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 229
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede6bfc915a63b250800000000000000
+      internalID: 5959223630699917022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_21
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 278
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977bc9457c3b4e960800000000000000
+      internalID: 7630421337371883385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_22
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 237
+        width: 214
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce83df064a849d210800000000000000
+      internalID: 1358196633467959532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_23
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 217
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df51bfeb5ba3657a0800000000000000
+      internalID: -6388854469110852099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_24
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 486
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88932c00a329f860800000000000000
+      internalID: 7564116219450857613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_25
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 196
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ddc8d09ac5d19020800000000000000
+      internalID: 2346891946826976728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_26
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 225
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10842c3090bea22b0800000000000000
+      internalID: -5608411961986234367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_27
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 488
+        width: 182
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5bd7d4d28b77c60800000000000000
+      internalID: 7815918183037908451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_28
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 199
+        width: 47
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcae1eb9ec22997e0800000000000000
+      internalID: -1758335908737586483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_29
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 217
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a929d2ecd0b157c70800000000000000
+      internalID: 8968103979085828762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_30
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 489
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb66e5141e850900800000000000000
+      internalID: 650081938142817272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_31
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 229
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3af371923a93bed0800000000000000
+      internalID: -2399404634479003075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_32
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 177
+        width: 204
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7a8f89e819bbc6c0800000000000000
+      internalID: -4121997517278705030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_33
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 832
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7ce01b9c4df4c40800000000000000
+      internalID: 5498847632766715880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_34
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 818
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f3e23442afad810800000000000000
+      internalID: 1791018835486064474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_35
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 487
+        width: 227
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4b979f6a26a3daa0800000000000000
+      internalID: -6137379165984810166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_36
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 194
+        width: 84
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6719a82602d681ce0800000000000000
+      internalID: -1434276495457873546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_37
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 484
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f765aed89bfa4ef0800000000000000
+      internalID: -123009405810284552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_38
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 554
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908c0d73f8f3a2110800000000000000
+      internalID: 1236870932015925257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_39
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 606
+        width: 96
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef703e2ce10ff690800000000000000
+      internalID: -7566326735060303904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_40
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 587
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5237081cdc3229a0800000000000000
+      internalID: -6259373616097971622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_medeu_41
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 588
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9de44c09e8654d0800000000000000
+      internalID: -3146170537251776094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      title_medeu_0: 506692867717706134
+      title_medeu_1: 2739942330193941595
+      title_medeu_10: 5722578767975480241
+      title_medeu_11: 2780451733437385052
+      title_medeu_12: 4358544018997778585
+      title_medeu_13: 1713203049520865992
+      title_medeu_14: -146331159845754052
+      title_medeu_15: -3154058791182633349
+      title_medeu_16: 131731618446789598
+      title_medeu_17: 5629693455010413378
+      title_medeu_18: 981648538513595386
+      title_medeu_19: -9024029376331586105
+      title_medeu_2: 7707427463347966904
+      title_medeu_20: 5959223630699917022
+      title_medeu_21: 7630421337371883385
+      title_medeu_22: 1358196633467959532
+      title_medeu_23: -6388854469110852099
+      title_medeu_24: 7564116219450857613
+      title_medeu_25: 2346891946826976728
+      title_medeu_26: -5608411961986234367
+      title_medeu_27: 7815918183037908451
+      title_medeu_28: -1758335908737586483
+      title_medeu_29: 8968103979085828762
+      title_medeu_3: 7430908676354403024
+      title_medeu_30: 650081938142817272
+      title_medeu_31: -2399404634479003075
+      title_medeu_32: -4121997517278705030
+      title_medeu_33: 5498847632766715880
+      title_medeu_34: 1791018835486064474
+      title_medeu_35: -6137379165984810166
+      title_medeu_36: -1434276495457873546
+      title_medeu_37: -123009405810284552
+      title_medeu_38: 1236870932015925257
+      title_medeu_39: -7566326735060303904
+      title_medeu_4: -7795237417459690337
+      title_medeu_40: -6259373616097971622
+      title_medeu_41: -3146170537251776094
+      title_medeu_5: -634345120929473997
+      title_medeu_6: 6021864443854163710
+      title_medeu_7: -2919985092857466256
+      title_medeu_8: 1398277002108335681
+      title_medeu_9: 3382014635834241666
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

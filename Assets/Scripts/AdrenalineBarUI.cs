@@ -78,6 +78,23 @@ public class AdrenalineBarUI : MonoBehaviour
         catch { }
     }
 
+    private void Update()
+    {
+        // Проверяем что ссылка на adrenalineSystem актуальна
+        if (adrenalineSystem == null || adrenalineSystem.gameObject == null)
+        {
+            // Переподключаемся к игроку (например после смены сцены)
+            Unsubscribe();
+            TryAutoFind();
+            Subscribe();
+            
+            if (adrenalineSystem != null)
+            {
+                Refresh();
+            }
+        }
+    }
+
     public void Refresh()
     {
         if (adrenalineSystem == null)

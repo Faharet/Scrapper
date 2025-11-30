@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 [System.Serializable]
 public class Health : MonoBehaviour, IDamageable
@@ -20,7 +22,13 @@ public class Health : MonoBehaviour, IDamageable
     [Tooltip("Ссылка на SpriteRenderer. Если не задана, будет найдена автоматически.")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [Tooltip("Скорость мигания (количество включений/выключений в секунду).")]
-    [SerializeField] private float _blinkSpeed = 20f; 
+    [SerializeField] private float _blinkSpeed = 20f;
+
+    [Header("Player Death Settings")]
+    [Tooltip("Если включено и это игрок - перезагружает текущую сцену при смерти")]
+    [SerializeField] private bool isPlayer = false;
+    [Tooltip("Задержка перед перезагрузкой сцены (секунды)")]
+    [SerializeField] private float deathDelayBeforeReload = 2f;
 
     [Header("Events")]
     public UnityEvent onDamage;
@@ -29,6 +37,7 @@ public class Health : MonoBehaviour, IDamageable
 
     private float currentHealth;
     private float lastDamageTime = -999f;
+    private bool isDead = false;
 
     public float CurrentHealth => currentHealth;
     
@@ -56,7 +65,10 @@ public class Health : MonoBehaviour, IDamageable
     // НОВЫЙ МЕТОД: Обработка мигания в каждом кадре
     void Update()
     {
-        HandleInvulnerabilityBlinking();
+        if (!isDead)
+        {
+            HandleInvulnerabilityBlinking();
+        }
     }
 
     public void TakeDamage(float amount)
@@ -99,11 +111,43 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        if (isDead) return; // Предотвращаем повторный вызов
+        
+        isDead = true;
+        
         // Убеждаемся, что спрайт виден
         if (_spriteRenderer != null)
             _spriteRenderer.enabled = true;
             
         onDeath?.Invoke();
+        
+        // Если это игрок - перезагружаем сцену после задержки
+        if (isPlayer)
+        {
+            StartCoroutine(ReloadSceneAfterDelay());
+        }
+    }
+    
+    /// <summary>
+    /// Перезагружает текущую сцену после задержки
+    /// </summary>
+    private IEnumerator ReloadSceneAfterDelay()
+    {
+        Debug.Log($"Health: Игрок умер. Перезагрузка сцены через {deathDelayBeforeReload} сек...");
+        
+        // Опционально: можно отключить управление игроком
+        PlayerController playerController = GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.enabled = false;
+        }
+        
+        yield return new WaitForSeconds(deathDelayBeforeReload);
+        
+        // Перезагружаем текущую сцену
+        Scene currentScene = SceneManager.GetActiveScene();
+        Debug.Log($"Health: Перезагрузка сцены '{currentScene.name}'");
+        SceneManager.LoadScene(currentScene.name);
     }
     
     public void FillToMax()
@@ -115,7 +159,7 @@ public class Health : MonoBehaviour, IDamageable
     // НОВЫЙ МЕТОД: Логика мигания спрайта
     private void HandleInvulnerabilityBlinking()
     {
-        if (_spriteRenderer == null || invulnerabilityTime <= 0f) return;
+        if (isDead || _spriteRenderer == null || invulnerabilityTime <= 0f) return;
 
         // Проверяем, активна ли неуязвимость
         bool isInvulnerable = Time.time - lastDamageTime < invulnerabilityTime;

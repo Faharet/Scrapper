@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: fae0b23834068f24195df3cc50c5bc7e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -267076954836731252
+    second: sprite_drone_death_0
+  - first:
+      213: 715066122862344489
+    second: sprite_drone_death_1
+  - first:
+      213: -517456280208215438
+    second: sprite_drone_death_2
+  - first:
+      213: -6625511930778447633
+    second: sprite_drone_death_3
+  - first:
+      213: 4994079862151006194
+    second: sprite_drone_death_4
+  - first:
+      213: -4483850234776354593
+    second: sprite_drone_death_5
+  - first:
+      213: 9147936539834826675
+    second: sprite_drone_death_6
+  - first:
+      213: -6338879713277152039
+    second: sprite_drone_death_7
+  - first:
+      213: 746611148763510318
+    second: sprite_drone_death_8
+  - first:
+      213: -4027445699284564140
+    second: sprite_drone_death_9
+  - first:
+      213: 8855828595027141890
+    second: sprite_drone_death_10
+  - first:
+      213: 8194036654175907652
+    second: sprite_drone_death_11
+  - first:
+      213: 3384986956381419528
+    second: sprite_drone_death_12
+  - first:
+      213: -4622854912874415904
+    second: sprite_drone_death_13
+  - first:
+      213: -3838487502140531788
+    second: sprite_drone_death_14
+  - first:
+      213: -5361142798816412631
+    second: sprite_drone_death_15
+  - first:
+      213: 1777265087206458008
+    second: sprite_drone_death_16
+  - first:
+      213: -4026593696610953678
+    second: sprite_drone_death_17
+  - first:
+      213: -8555554231865485956
+    second: sprite_drone_death_18
+  - first:
+      213: 711330945214858045
+    second: sprite_drone_death_19
+  - first:
+      213: 6894761306189843660
+    second: sprite_drone_death_20
+  - first:
+      213: -2023946430277742411
+    second: sprite_drone_death_21
+  - first:
+      213: 3184632985092083766
+    second: sprite_drone_death_22
+  - first:
+      213: -8635215636853255547
+    second: sprite_drone_death_23
+  - first:
+      213: 3580716610565756092
+    second: sprite_drone_death_24
+  - first:
+      213: 7874222045056065446
+    second: sprite_drone_death_25
+  - first:
+      213: -8869502934574983617
+    second: sprite_drone_death_26
+  - first:
+      213: 2125673378727339009
+    second: sprite_drone_death_27
+  - first:
+      213: -6641601090604883820
+    second: sprite_drone_death_28
+  - first:
+      213: -8230981748249442180
+    second: sprite_drone_death_29
+  - first:
+      213: -5581893583694405506
+    second: sprite_drone_death_30
+  - first:
+      213: -2230470795255130414
+    second: sprite_drone_death_31
+  - first:
+      213: 8685249157198373878
+    second: sprite_drone_death_32
+  - first:
+      213: -5347814449083816021
+    second: sprite_drone_death_33
+  - first:
+      213: -2970574648067031488
+    second: sprite_drone_death_34
+  - first:
+      213: 2950316073443570858
+    second: sprite_drone_death_35
+  - first:
+      213: -3474021451518082054
+    second: sprite_drone_death_36
+  - first:
+      213: 6159003302103837867
+    second: sprite_drone_death_37
+  - first:
+      213: 6768424937734587160
+    second: sprite_drone_death_38
+  - first:
+      213: -1593171672430590645
+    second: sprite_drone_death_39
+  - first:
+      213: 5685937831570109306
+    second: sprite_drone_death_40
+  - first:
+      213: 4058221620191626238
+    second: sprite_drone_death_41
+  - first:
+      213: -8315668160624993325
+    second: sprite_drone_death_42
+  - first:
+      213: -955639311718686001
+    second: sprite_drone_death_43
+  - first:
+      213: -9155494914133796733
+    second: sprite_drone_death_44
+  - first:
+      213: -7132765289404038430
+    second: sprite_drone_death_45
+  - first:
+      213: -3866787555402007704
+    second: sprite_drone_death_46
+  - first:
+      213: -2427736883728900562
+    second: sprite_drone_death_47
+  - first:
+      213: 5745502750791788134
+    second: sprite_drone_death_48
+  - first:
+      213: 2772485030227420522
+    second: sprite_drone_death_49
+  - first:
+      213: 8046250140919797138
+    second: sprite_drone_death_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_drone_death_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 18
+        width: 212
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a7343bce62b4cf0800000000000000
+      internalID: -267076954836731252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_drone_death_5
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 18
+        width: 212
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd08a1ac7f926c1c0800000000000000
+      internalID: -4483850234776354593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die_0
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 18
+        width: 212
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8efea2b82b9a2242a2ef57921ae5a06
+      internalID: 703831575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die_1
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 18
+        width: 212
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f5009b4831aad459b27d1f057c8740
+      internalID: 754675665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die_2
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 18
+        width: 212
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15b4d01b16722b4c9b1842488b2c3b8
+      internalID: -490627604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die_3
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 37
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb500744a914b94fae0c43206a3212a
+      internalID: 1969383335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 047681da9ab0fa94785d2045689d9373
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      die_0: 703831575
+      die_1: 754675665
+      die_2: -490627604
+      die_3: 1969383335
+      sprite_drone_death_0: -267076954836731252
+      sprite_drone_death_1: 715066122862344489
+      sprite_drone_death_10: 8855828595027141890
+      sprite_drone_death_11: 8194036654175907652
+      sprite_drone_death_12: 3384986956381419528
+      sprite_drone_death_13: -4622854912874415904
+      sprite_drone_death_14: -3838487502140531788
+      sprite_drone_death_15: -5361142798816412631
+      sprite_drone_death_16: 1777265087206458008
+      sprite_drone_death_17: -4026593696610953678
+      sprite_drone_death_18: -8555554231865485956
+      sprite_drone_death_19: 711330945214858045
+      sprite_drone_death_2: -517456280208215438
+      sprite_drone_death_20: 6894761306189843660
+      sprite_drone_death_21: -2023946430277742411
+      sprite_drone_death_22: 3184632985092083766
+      sprite_drone_death_23: -8635215636853255547
+      sprite_drone_death_24: 3580716610565756092
+      sprite_drone_death_25: 7874222045056065446
+      sprite_drone_death_26: -8869502934574983617
+      sprite_drone_death_27: 2125673378727339009
+      sprite_drone_death_28: -6641601090604883820
+      sprite_drone_death_29: -8230981748249442180
+      sprite_drone_death_3: -6625511930778447633
+      sprite_drone_death_30: -5581893583694405506
+      sprite_drone_death_31: -2230470795255130414
+      sprite_drone_death_32: 8685249157198373878
+      sprite_drone_death_33: -5347814449083816021
+      sprite_drone_death_34: -2970574648067031488
+      sprite_drone_death_35: 2950316073443570858
+      sprite_drone_death_36: -3474021451518082054
+      sprite_drone_death_37: 6159003302103837867
+      sprite_drone_death_38: 6768424937734587160
+      sprite_drone_death_39: -1593171672430590645
+      sprite_drone_death_4: 4994079862151006194
+      sprite_drone_death_40: 5685937831570109306
+      sprite_drone_death_41: 4058221620191626238
+      sprite_drone_death_42: -8315668160624993325
+      sprite_drone_death_43: -955639311718686001
+      sprite_drone_death_44: -9155494914133796733
+      sprite_drone_death_45: -7132765289404038430
+      sprite_drone_death_46: -3866787555402007704
+      sprite_drone_death_47: -2427736883728900562
+      sprite_drone_death_48: 5745502750791788134
+      sprite_drone_death_49: 2772485030227420522
+      sprite_drone_death_5: -4483850234776354593
+      sprite_drone_death_50: 8046250140919797138
+      sprite_drone_death_6: 9147936539834826675
+      sprite_drone_death_7: -6338879713277152039
+      sprite_drone_death_8: 746611148763510318
+      sprite_drone_death_9: -4027445699284564140
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
