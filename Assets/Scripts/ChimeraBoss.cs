@@ -58,6 +58,20 @@ public class ChimeraBoss : Enemy
     {
         base.Start();
 
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+        {
+            target = playerObj.transform;
+            playerController = playerObj.GetComponent<PlayerController>();
+            playerRb = playerObj.GetComponent<Rigidbody2D>();
+            playerDamageable = playerObj.GetComponent<IDamageable>();
+        }
+        else
+        {
+            Debug.LogError("ChimeraBoss: Игрок не найден!");
+            return;
+        }
+
         localSpriteRenderer = GetComponent<SpriteRenderer>();
 
         currentPhase = BossPhase.Phase0_Sleep;
@@ -101,14 +115,6 @@ public class ChimeraBoss : Enemy
         {
             WakeUp();
             return;
-        }
-
-        if (playerRb != null)
-        {
-            if (playerRb.linearVelocity.magnitude > 0.1f)
-            {
-                playerRb.linearVelocity *= playerSlowAmount; 
-            }
         }
 
         float pulse = Mathf.Sin(Time.time * 2f) * 0.2f;
