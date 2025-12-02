@@ -2747,6 +2747,10 @@ PrefabInstance:
       propertyPath: startWithPipe
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7877499595634960776, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
+      propertyPath: healKey
+      value: 97
+      objectReference: {fileID: 0}
     - target: {fileID: 8105865322692024605, guid: 7ba9a590874af25438241f365b412bd5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.22

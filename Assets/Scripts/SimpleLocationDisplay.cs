@@ -68,6 +68,8 @@ public class SimpleLocationDisplay : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 0f;
+        
+        Debug.Log("SimpleLocationDisplay: Анимация завершена, скрываем объект");
 
         // Скрываем объект
         gameObject.SetActive(false);

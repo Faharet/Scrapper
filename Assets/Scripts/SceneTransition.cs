@@ -75,6 +75,19 @@ public class SceneTransition : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
+    
+    private void Update()
+    {
+        // Постоянно проверяем что fadeImage скрыт когда не происходит переход
+        if (!isTransitioning && fadeImage != null)
+        {
+            if (fadeImage.color.a > 0.01f)
+            {
+                Debug.LogWarning($"SceneTransition: fadeImage видим без перехода! alpha={fadeImage.color.a:F2}, принудительно скрываем");
+                SetAlpha(0f);
+            }
+        }
+    }
 
     /// <summary>
     /// Переход на другую сцену с анимацией затемнения
@@ -129,6 +142,10 @@ public class SceneTransition : MonoBehaviour
 
         // Осветление (fade in)
         yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
+        
+        // Принудительно убеждаемся что fadeImage полностью прозрачен
+        SetAlpha(0f);
+        Debug.Log("SceneTransition: Переход завершён (sceneName), fadeImage скрыт (alpha=0)");
 
         isTransitioning = false;
     }
@@ -157,6 +174,10 @@ public class SceneTransition : MonoBehaviour
 
         // Осветление (fade in)
         yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
+        
+        // Принудительно убеждаемся что fadeImage полностью прозрачен
+        SetAlpha(0f);
+        Debug.Log("SceneTransition: Переход завершён (sceneIndex), fadeImage скрыт (alpha=0)");
 
         isTransitioning = false;
     }
